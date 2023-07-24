@@ -24,8 +24,8 @@ const AuthSide = () => {
           <p className="text-base text-neutral-800">This is some dummy text</p>
         </div>
 
-        <div className="absolute bottom-24 start-24 h-52 w-52 rounded-lg bg-purple-300/30 backdrop-blur-sm backdrop-grayscale"></div>
-        <div className="absolute bottom-5 start-52 h-52 w-52 rounded-lg bg-green-300/30 backdrop-blur-sm backdrop-grayscale"></div>
+        <div className="absolute bottom-24 start-24 h-52 w-52 rounded-lg bg-purple-300/30 backdrop-blur-sm"></div>
+        <div className="absolute bottom-5 start-52 h-52 w-96 rounded-lg bg-green-300/30 backdrop-blur-sm"></div>
       </div>
     </div>
   );
