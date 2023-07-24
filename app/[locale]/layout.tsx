@@ -4,7 +4,7 @@ import KalamehFont from "@/font/kalameh";
 import { NextIntlClientProvider, useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import React from "react";
-import { getLocale, Locales } from "@/data/i18n-configs";
+import { getLocale, Locale } from "@/data/i18n-configs";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "fa" }];
@@ -40,7 +40,7 @@ const RootLayout = async function ({
     notFound();
   }
 
-  const { direction } = getLocale(locale as Locales);
+  const { direction } = getLocale(locale as Locale);
 
   return (
     <html lang={locale} dir={direction}>
