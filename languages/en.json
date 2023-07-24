@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "signin": {
+      "welcome": "Welcome Back",
+      "message": "We were waiting on you, sign back now!",
+      "remember": "Remember me",
+      "use_google": "Continue With Google",
+      "sign_in": "Sign in",
+      "forget_password": "Forget password?",
+      "or": "Or",
+      "password": "Password",
+      "email": {
+        "value": "Email",
+        "address": "Email address"
+      }
+    },
+    "signup": {},
+    "forgetPassword": {}
+  }
+}
