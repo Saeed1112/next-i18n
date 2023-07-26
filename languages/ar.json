@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "signin": {
+      "welcome": "ال خوش برگشتی",
+      "message": "ال منتظرت بودیم, همین حالا وارد حسابت شو!",
+      "remember": "البخاطر سبردن",
+      "use_google": "بورود با جوجل",
+      "sign_in": "الورود",
+      "forget_password": "الفورجت بسورد",
+      "or": "یا",
+      "password": "الرمزالعبور",
+      "email": {
+        "value": "الایمیل",
+        "address": "الآدرس المیل"
+      }
+    },
+    "signup": {},
+    "forgetPassword": {}
+  }
+}

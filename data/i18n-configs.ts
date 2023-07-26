@@ -16,6 +16,10 @@ export const locales: I18nLanguage[] = [
     locale: "en",
     direction: "ltr",
   },
+  {
+    locale: "ar",
+    direction: "rtl",
+  },
 ];
 
 export function getLocale(locale: Locale): I18nLanguage {
