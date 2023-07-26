@@ -1,4 +1,4 @@
-export type Locale = "fa" | "en" | "ar";
+export type Locale = "fa" | "en" | "ar" | "fr";
 export type Direction = "rtl" | "ltr";
 
 interface I18nLanguage {
@@ -19,6 +19,10 @@ export const locales: I18nLanguage[] = [
   {
     locale: "ar",
     direction: "rtl",
+  },
+  {
+    locale: "fr",
+    direction: "ltr",
   },
 ];
 
