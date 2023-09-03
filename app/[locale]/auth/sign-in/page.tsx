@@ -31,20 +31,18 @@ function CheckBox({
 }
 
 function WelcomeMessage() {
-  const t = useTranslations("auth");
+  const t = useTranslations("auth.signin");
 
   return (
     <>
-      <h2 className="text-2xl font-bold text-neutral-900">
-        {t("signin.welcome")}
-      </h2>
-      <p className="text-sm text-neutral-400">{t("signin.message")}</p>
+      <h2 className="text-2xl font-bold text-neutral-900">{t("welcome")}</h2>
+      <p className="text-sm text-neutral-400">{t("message")}</p>
     </>
   );
 }
 
 const Page = () => {
-  const t = useTranslations("auth");
+  const t = useTranslations("auth.signin");
 
   const [loading, setLoading] = useState(false);
 
@@ -60,22 +58,22 @@ const Page = () => {
           <div>
             <TextInput
               type="email"
-              label={t("signin.email.value")}
-              placeholder={`${t("signin.email.address")} ...`}
+              label={t("email.value")}
+              placeholder={`${t("email.address")} ...`}
             />
           </div>
           <div>
             <TextInput
               type="password"
-              label={t("signin.password")}
-              placeholder={`${t("signin.password")} ...`}
+              label={t("password")}
+              placeholder={`${t("password")} ...`}
             />
           </div>
 
           <div className="flex items-center justify-between">
-            <CheckBox>{t("signin.remember")}</CheckBox>
+            <CheckBox>{t("remember")}</CheckBox>
             <a className="text-xs text-neutral-400" href="#">
-              {t("signin.forget_password")}
+              {t("forget_password")}
             </a>
           </div>
           <div>
@@ -83,7 +81,7 @@ const Page = () => {
               onClick={() => setLoading((state) => !state)}
               loading={loading}
             >
-              {t("signin.sign_in")}
+              {t("sign_in")}
             </Button>
           </div>
         </div>
@@ -100,11 +98,11 @@ const Page = () => {
 export default Page;
 
 function Or() {
-  const t = useTranslations("auth");
+  const t = useTranslations("auth.signin");
   return (
     <div className="my-5 flex items-center gap-4">
       <div className="h-[1px] flex-1 bg-neutral-200" />
-      <span className="font-medium">{t("signin.or")}</span>
+      <span className="font-medium">{t("or")}</span>
       <div className="h-[1px] flex-1 bg-neutral-200" />
     </div>
   );
@@ -142,7 +140,7 @@ function Button({
 }
 
 function GoogleAuthButton() {
-  const t = useTranslations("auth");
+  const t = useTranslations("auth.signin");
   return (
     <button className="flex h-12 flex-1 items-center justify-center gap-2 rounded-md bg-neutral-100 text-sm font-semibold text-neutral-600">
       <div className="aspect-square w-5">
@@ -154,7 +152,7 @@ function GoogleAuthButton() {
           className="aspect-square h-full "
         />
       </div>
-      <span className="mt-1">{t("signin.use_google")}</span>
+      <span className="mt-1">{t("use_google")}</span>
     </button>
   );
 }

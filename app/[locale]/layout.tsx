@@ -1,13 +1,14 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import KalamehFont from "@/font/kalameh";
 import { NextIntlClientProvider, useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import React from "react";
-import { getLocale, Locale } from "@/data/i18n-configs";
+import { getLocale, Locale, locales } from "@/data/i18n-configs";
+import { MonaSans } from "@/font/mona-sans";
+import { KalamehFont } from "@/font/kalameh";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "fa" }];
+  return locales.map(({ locale }) => ({ locale }));
 }
 
 const directions: any = {
@@ -44,7 +45,9 @@ const RootLayout = async function ({
 
   return (
     <html lang={locale} dir={direction}>
-      <body className={`${KalamehFont.className} flex min-h-screen flex-col`}>
+      <body
+        className={`${MonaSans.variable} ${KalamehFont.variable} flex min-h-screen flex-col font-mona-sans-kalameh`}
+      >
         <NextIntlClientProvider locale={locale} messages={language}>
           {children}
         </NextIntlClientProvider>
