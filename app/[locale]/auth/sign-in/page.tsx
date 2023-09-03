@@ -59,12 +59,14 @@ const Page = () => {
         <WelcomeMessage />
         <div className="mt-10 flex flex-col gap-5">
           <Input
+            className="h-10"
             label={t("email.value")}
             placeholder={`${t("email.address")} ...`}
             type={"email"}
             inputMode={"email"}
           />
           <Input
+            className="h-10"
             type="password"
             label={t("password")}
             placeholder={`${t("password")} ...`}
@@ -79,6 +81,8 @@ const Page = () => {
           <div>
             <Button
               variant="primary"
+              size="lg"
+              className="w-full"
               onClick={() => setLoading((state) => !state)}
             >
               {t("sign_in")}
