@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import TextInput from "@/components/TextInput";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
+import Indicator from "@/components/Indicator";
 
 type CheckBoxProps = {
   children: React.ReactNode;
@@ -121,19 +123,20 @@ function Button({
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   >) {
+  const loadingClass = cn("invisible", { visible: loading });
+  const loadingContentClass = cn("visible", { invisible: loading });
   return (
     <button
       disabled={loading}
-      className="relative flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-[--primary] font-medium text-white"
+      className="relative flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-blue-700 font-medium text-white"
       {...rest}
     >
-      <span className={loading ? "invisible" : "visible"}>{children}</span>
+      <span className={loadingContentClass}>{children}</span>
       <div
-        className={`absolute inset-0 flex animate-pulse items-center justify-center ${
-          loading ? "visible" : "invisible"
-        }`}
+        className={`absolute inset-0 flex animate-pulse items-center justify-center gap-2 ${loadingClass}`}
       >
-        Any loading indicator
+        <Indicator />
+        Loading ...
       </div>
     </button>
   );
