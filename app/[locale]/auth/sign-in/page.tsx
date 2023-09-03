@@ -25,7 +25,7 @@ const Page = () => {
         <p className="text-sm text-neutral-400">{t("message")}</p>
         <div className="mt-10 flex flex-col gap-5">
           <Input
-            icon={<AtSign size={20} />}
+            icon={<AtSign strokeWidth={1.2} size={20} />}
             className="h-10"
             label={t("email.value")}
             placeholder={`${t("email.address")} ...`}
@@ -33,7 +33,7 @@ const Page = () => {
             inputMode={"email"}
           />
           <Input
-            icon={<Lock size={20} />}
+            icon={<Lock strokeWidth={1.2} size={20} />}
             className="h-10"
             type="password"
             label={t("password")}
