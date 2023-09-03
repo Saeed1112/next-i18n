@@ -41,7 +41,6 @@ const Page = () => {
           />
 
           <div className="flex items-center justify-between">
-            <Checkbox>Remember me</Checkbox>
             <a className="text-xs text-neutral-400" href="#">
               {t("forget_password")}
             </a>
