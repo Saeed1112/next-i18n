@@ -78,7 +78,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
-        <span className={loadingClassContent}>{children}</span>
+        <div
+          className={`${loadingClassContent} flex items-center justify-center gap-2`}
+        >
+          {children}
+        </div>
         <span
           className={`${loadingClass} pointer-events-none absolute inset-0 flex items-center justify-center`}
         >
