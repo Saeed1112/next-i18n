@@ -23,9 +23,9 @@ function CheckBox({
   >) {
   return (
     <label className="flex select-none items-center gap-2">
-      <span className="relative flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-md border-2 border-[--primary]">
+      <span className="relative flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-md border-2 border-primary">
         <input type="checkbox" className="peer" hidden {...rest} />
-        <span className="absolute inset-0 scale-0 rounded-lg bg-[--primary] transition-all delay-200 duration-200 peer-checked:scale-100 peer-checked:rounded-sm peer-checked:delay-0"></span>
+        <span className="absolute inset-0 scale-0 rounded-lg bg-primary transition-all delay-200 duration-200 peer-checked:scale-100 peer-checked:rounded-sm peer-checked:delay-0"></span>
         <span className="absolute mb-0.5 h-1/3 w-8/12 scale-0 border-b-2 border-l-2 border-white transition-all delay-0 duration-300 peer-checked:-rotate-45 peer-checked:scale-100 peer-checked:delay-100"></span>
       </span>
       <span className="text-sm text-neutral-600 ltr:mt-1">{children}</span>
@@ -80,9 +80,10 @@ const Page = () => {
           </div>
           <div>
             <Button
-              variant="primary"
+              variant="default"
               size="lg"
               className="w-full"
+              loading={loading}
               onClick={() => setLoading((state) => !state)}
             >
               {t("sign_in")}
@@ -129,7 +130,7 @@ function GoogleAuthButton() {
           className="aspect-square h-full "
         />
       </div>
-      <span className="mt-1">{t("use_google")}</span>
+      <span>{t("use_google")}</span>
     </button>
   );
 }
