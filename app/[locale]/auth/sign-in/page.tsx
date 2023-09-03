@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import Indicator from "@/components/Indicator";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 type CheckBoxProps = {
   children: React.ReactNode;
@@ -77,8 +78,8 @@ const Page = () => {
           </div>
           <div>
             <Button
+              variant="primary"
               onClick={() => setLoading((state) => !state)}
-              loading={loading}
             >
               {t("sign_in")}
             </Button>
@@ -110,35 +111,6 @@ function Or() {
 type ButtonProps = {
   loading?: boolean;
 };
-
-function Button({
-  loading,
-  children,
-  ...rest
-}: ButtonProps &
-  React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >) {
-  const t = useTranslations("auth");
-  const loadingClass = cn("invisible", { visible: loading });
-  const loadingContentClass = cn("visible", { invisible: loading });
-  return (
-    <button
-      disabled={loading}
-      className="relative flex h-12 w-full items-center justify-center overflow-hidden rounded-md bg-blue-700 font-medium text-white"
-      {...rest}
-    >
-      <span className={loadingContentClass}>{children}</span>
-      <div
-        className={`absolute inset-0 flex items-center justify-center gap-2 ${loadingClass}`}
-      >
-        <Indicator />
-        {t("loading")}
-      </div>
-    </button>
-  );
-}
 
 function GoogleAuthButton() {
   const t = useTranslations("auth.signin");
