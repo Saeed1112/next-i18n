@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import TextInput from "@/components/TextInput";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import Indicator from "@/components/Indicator";
+import { Input } from "@/components/ui/input";
 
 type CheckBoxProps = {
   children: React.ReactNode;
@@ -53,24 +53,21 @@ const Page = () => {
   }, [loading]);
 
   return (
-    <div className="mx-auto flex flex-1 items-center justify-center bg-[--background] ">
+    <div className="mx-auto flex flex-1 items-center justify-center bg-background">
       <div className="flex w-96 max-w-sm flex-col px-3 py-16">
         <WelcomeMessage />
         <div className="mt-10 flex flex-col gap-5">
-          <div>
-            <TextInput
-              type="email"
-              label={t("email.value")}
-              placeholder={`${t("email.address")} ...`}
-            />
-          </div>
-          <div>
-            <TextInput
-              type="password"
-              label={t("password")}
-              placeholder={`${t("password")} ...`}
-            />
-          </div>
+          <Input
+            label={t("email.value")}
+            placeholder={`${t("email.address")} ...`}
+            type={"email"}
+            inputMode={"email"}
+          />
+          <Input
+            type="password"
+            label={t("password")}
+            placeholder={`${t("password")} ...`}
+          />
 
           <div className="flex items-center justify-between">
             <CheckBox>{t("remember")}</CheckBox>
@@ -123,6 +120,7 @@ function Button({
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   >) {
+  const t = useTranslations("auth");
   const loadingClass = cn("invisible", { visible: loading });
   const loadingContentClass = cn("visible", { invisible: loading });
   return (
@@ -133,10 +131,10 @@ function Button({
     >
       <span className={loadingContentClass}>{children}</span>
       <div
-        className={`absolute inset-0 flex animate-pulse items-center justify-center gap-2 ${loadingClass}`}
+        className={`absolute inset-0 flex items-center justify-center gap-2 ${loadingClass}`}
       >
         <Indicator />
-        Loading ...
+        {t("loading")}
       </div>
     </button>
   );

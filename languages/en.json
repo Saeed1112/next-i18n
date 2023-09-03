@@ -1,5 +1,6 @@
 {
   "auth": {
+    "loading": "Loading ...",
     "signin": {
       "welcome": "Welcome Back",
       "message": "We were waiting on you, sign back now!",
