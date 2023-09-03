@@ -2,11 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
-import Indicator from "@/components/Indicator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { AtSign, Lock } from "lucide-react";
 
 type CheckBoxProps = {
   children: React.ReactNode;
@@ -27,6 +25,7 @@ const Page = () => {
         <p className="text-sm text-neutral-400">{t("message")}</p>
         <div className="mt-10 flex flex-col gap-5">
           <Input
+            icon={<AtSign size={20} />}
             className="h-10"
             label={t("email.value")}
             placeholder={`${t("email.address")} ...`}
@@ -34,6 +33,7 @@ const Page = () => {
             inputMode={"email"}
           />
           <Input
+            icon={<Lock size={20} />}
             className="h-10"
             type="password"
             label={t("password")}
@@ -45,7 +45,7 @@ const Page = () => {
               {t("forget_password")}
             </a>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button
               variant="default"
               size="lg"
@@ -54,7 +54,7 @@ const Page = () => {
             >
               {t("sign_in")}
             </Button>
-            <Button variant="secondary" className="flex-1" size="lg">
+            <Button variant="secondary" size="lg">
               <Image
                 src="/images/google-logo.png"
                 alt="Google Logo"

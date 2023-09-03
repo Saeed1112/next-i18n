@@ -5,7 +5,7 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-1">
-      <div className="relative flex w-full flex-shrink-0 xl:w-[32rem]">
+      <div className="relative flex w-full flex-shrink-0">
         <div className="absolute bottom-5 end-5 z-10 flex items-center gap-2">
           <LocaleSwitcher />
         </div>

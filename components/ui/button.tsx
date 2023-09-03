@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import Indicator from "@/components/Indicator";
 
 const buttonVariants = cva(
-  "inline-flex relative items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1" +
+  "inline-flex relative items-center justify-center select-none rounded-md text-sm font-medium transition-colors focus-visible:outline-none" +
+    " focus-visible:ring-1" +
     " focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
