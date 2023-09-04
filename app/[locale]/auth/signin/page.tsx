@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AtSign, Lock } from "lucide-react";
+import { signIn, useSession } from "next-auth/react";
+import { AuthProviders } from "@/app/api/auth/[...nextauth]/route";
 
 type CheckBoxProps = {
   children: React.ReactNode;
@@ -12,11 +14,20 @@ type CheckBoxProps = {
 
 const Page = () => {
   const t = useTranslations("auth.signin");
+  const [user, setUser] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const { data } = useSession();
 
-  useEffect(() => {
-    loading && setTimeout(() => setLoading(false), 4000);
-  }, [loading]);
+  async function onSubmit() {
+    setLoading(true);
+    const result = await signIn(AuthProviders.Credentials, {
+      ...user,
+      redirect: false,
+      callbackUrl: "/",
+    });
+    console.log(result?.error && "No user");
+    setLoading(false);
+  }
 
   return (
     <div className="mx-auto flex flex-1 items-center justify-center bg-background">
@@ -25,6 +36,9 @@ const Page = () => {
         <p className="text-sm text-neutral-400">{t("message")}</p>
         <div className="mt-10 flex flex-col gap-5">
           <Input
+            onChange={(e) =>
+              setUser((prev) => ({ ...prev, email: e.target.value }))
+            }
             icon={<AtSign size={20} />}
             className="h-10"
             label={t("email.value")}
@@ -33,6 +47,9 @@ const Page = () => {
             inputMode={"email"}
           />
           <Input
+            onChange={(e) =>
+              setUser((prev) => ({ ...prev, password: e.target.value }))
+            }
             icon={<Lock size={20} />}
             className="h-10"
             type="password"
@@ -45,12 +62,13 @@ const Page = () => {
               {t("forget_password")}
             </a>
           </div>
+          <div>{JSON.stringify(data)}</div>
           <div className="flex flex-wrap gap-2">
             <Button
               variant="default"
               size="lg"
               loading={loading}
-              onClick={() => setLoading((state) => !state)}
+              onClick={() => onSubmit()}
             >
               {t("sign_in")}
             </Button>

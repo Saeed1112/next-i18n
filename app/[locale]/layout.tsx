@@ -6,6 +6,10 @@ import React from "react";
 import { getLocale, Locale, locales } from "@/data/i18n-configs";
 import { MonaSans } from "@/font/mona-sans";
 import { KalamehFont } from "@/font/kalameh";
+import { SessionProvider } from "next-auth/react";
+import ClientSessionProvider from "@/app/ClientSessionProvider";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export function generateStaticParams() {
   return locales.map(({ locale }) => ({ locale }));
@@ -42,15 +46,18 @@ const RootLayout = async function ({
   }
 
   const { direction } = getLocale(locale as Locale);
-
+  const session = await getServerSession(authOptions);
+  console.log({ session });
   return (
     <html lang={locale} dir={direction}>
       <body
         className={`${MonaSans.variable} ${KalamehFont.variable} flex min-h-screen flex-col font-mona-sans-kalameh`}
       >
-        <NextIntlClientProvider locale={locale} messages={language}>
-          {children}
-        </NextIntlClientProvider>
+        <ClientSessionProvider session={session}>
+          <NextIntlClientProvider locale={locale} messages={language}>
+            {children}
+          </NextIntlClientProvider>
+        </ClientSessionProvider>
       </body>
     </html>
   );
