@@ -47,7 +47,6 @@ const RootLayout = async function ({
 
   const { direction } = getLocale(locale as Locale);
   const session = await getServerSession(authOptions);
-  console.log({ session });
   return (
     <html lang={locale} dir={direction}>
       <body

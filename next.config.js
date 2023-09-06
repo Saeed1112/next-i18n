@@ -3,4 +3,8 @@ const withNextIntl = require("next-intl/plugin")(
   "./i18n.ts"
 );
 
-module.exports = withNextIntl({});
+module.exports = withNextIntl({
+  experimental: {
+    serverActions: true,
+  },
+});
