@@ -10,8 +10,11 @@ import { AuthProviders } from "@/app/api/auth/[...nextauth]/route";
 import { z } from "zod";
 
 const schema = z.object({
-  email: z.string({ required_error: "email is required" }).email().nonempty(),
-  password: z.string().min(8).nonempty(),
+  email: z
+    .string({ required_error: "email is required" })
+    .email({ message: "Please enter a valid email" })
+    .nonempty(),
+  password: z.string().nonempty({ message: "Please enter your password!" }),
 });
 
 const Page = () => {

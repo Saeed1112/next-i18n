@@ -2,6 +2,7 @@ import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/lib/prisma";
 import { compare } from "bcrypt-ts";
+import { User } from "@prisma/client";
 
 export enum AuthProviders {
   Credentials = "Credentials",
@@ -26,7 +27,7 @@ export const authOptions: AuthOptions = {
           return null;
         }
 
-        return { email: "asfas", id: "asdfas", some: "thing" };
+        return user;
       },
     }),
   ],
@@ -35,6 +36,15 @@ export const authOptions: AuthOptions = {
   },
 
   session: { strategy: "jwt" },
+  callbacks: {
+    session: ({ session, token }) => {
+      return { ...session, user: { ...session.user, ...token } };
+    },
+    jwt: ({ token, user }) => {
+      if (user) return { ...token, ...user };
+      return token;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
