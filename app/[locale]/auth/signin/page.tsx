@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { signIn, useSession } from "next-auth/react";
 import { AuthProviders } from "@/app/api/auth/[...nextauth]/route";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Card, CardBody, Input } from "@nextui-org/react";
 import { z } from "zod";
+import { Lock, Mail } from "lucide-react";
+import { Chip } from "@nextui-org/chip";
 
 const schema = z.object({
   email: z
@@ -21,12 +23,13 @@ const Page = () => {
     email: string;
     password: string;
   }> | null>();
+  const [formError, setFormError] = useState("");
   const [loading, setLoading] = useState(false);
   const { data } = useSession();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+    setFormError("");
     const validation = schema.safeParse(user);
 
     if (!validation.success) {
@@ -42,6 +45,9 @@ const Page = () => {
       redirect: false,
       callbackUrl: "/"
     });
+    if (result?.error) {
+      setFormError("There is no user with this credentials!");
+    }
     setLoading(false);
   }
 
@@ -52,14 +58,15 @@ const Page = () => {
   return (
     <div className="mx-auto flex flex-1 items-center justify-center bg-background">
       <form
-        className="flex w-96 max-w-sm flex-col px-3 py-16"
+        className="flex w-96 max-w-xs flex-col px-3 py-16"
         onSubmit={onSubmit}
       >
-        {JSON.stringify(data)}
+
         <h2 className="text-2xl font-bold">{t("welcome")}</h2>
         <p className="text-sm text-neutral-400">{t("message")}</p>
-        <div className="mt-10 flex flex-col gap-5">
 
+
+        <div className="mt-5 flex flex-col gap-5">
           <Input
             onChange={updateValue}
             type="text"
@@ -68,9 +75,10 @@ const Page = () => {
             label={t("email.value")}
             placeholder="myemail@gmail.com"
             description="We'll never share your email with anyone else."
-            className="max-w-xs"
             validationState={errors?.email?._errors[0] ? "invalid" : "valid"}
-            errorMessage={errors?.email?._errors[0] }
+            errorMessage={errors?.email?._errors[0]}
+            radius="sm"
+            startContent={<Mail size={20} />}
           />
 
           <Input
@@ -79,19 +87,22 @@ const Page = () => {
             name="password"
             label={t("password")}
             placeholder="Your very secure password ..."
-            description="We'll never share your email with anyone else."
-            className="max-w-xs"
+            description={<Forgetpassowrd />}
             validationState={errors?.password?._errors[0] ? "invalid" : "valid"}
-            errorMessage={errors?.password?._errors[0] }
+            errorMessage={errors?.password?._errors[0]}
+            radius="sm"
+            startContent={<Lock size={20} />}
+
           />
 
 
           <div className="flex flex-wrap gap-2">
-            <Button color="secondary" radius="sm" type="submit" isLoading={loading}>
+            <Button color="primary" className="rtl:pb-1" radius="sm" type="submit" isLoading={loading}>
               {t("sign_in")}
             </Button>
-
           </div>
+
+
         </div>
       </form>
     </div>
@@ -99,3 +110,10 @@ const Page = () => {
 };
 
 export default Page;
+
+
+function Forgetpassowrd() {
+  return <>
+    If you forget password, <a href="#">Click right here</a>
+  </>;
+}

@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       fontFamily: {
         "mona-sans-kalameh": ["var(--font-mona-sans)", "var(--font-kalameh)"]
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     }
   },
