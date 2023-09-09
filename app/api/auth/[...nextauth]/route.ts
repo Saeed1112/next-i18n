@@ -28,11 +28,11 @@ export const authOptions: AuthOptions = {
         }
 
         return user;
-      },
-    }),
+      }
+    })
   ],
   pages: {
-    signIn: "/auth/signin",
+    signIn: "/auth/signin"
   },
 
   session: { strategy: "jwt" },
@@ -41,10 +41,14 @@ export const authOptions: AuthOptions = {
       return { ...session, user: { ...session.user, ...token } };
     },
     jwt: ({ token, user }) => {
-      if (user) return { ...token, ...user };
+
+      if (user) {
+        const { password, ...rest } = user as User;
+        return { ...token, ...rest };
+      }
       return token;
-    },
-  },
+    }
+  }
 };
 
 const handler = NextAuth(authOptions);

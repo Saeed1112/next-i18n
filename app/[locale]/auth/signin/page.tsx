@@ -1,12 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { AtSign, Lock } from "lucide-react";
 import { signIn, useSession } from "next-auth/react";
 import { AuthProviders } from "@/app/api/auth/[...nextauth]/route";
+import { Button, Input } from "@nextui-org/react";
 import { z } from "zod";
 
 const schema = z.object({
@@ -14,7 +11,7 @@ const schema = z.object({
     .string({ required_error: "email is required" })
     .email({ message: "Please enter a valid email" })
     .nonempty(),
-  password: z.string().nonempty({ message: "Please enter your password!" }),
+  password: z.string().nonempty({ message: "Please enter your password!" })
 });
 
 const Page = () => {
@@ -43,9 +40,13 @@ const Page = () => {
     const result = await signIn(AuthProviders.Credentials, {
       ...user,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl: "/"
     });
     setLoading(false);
+  }
+
+  function updateValue(e: React.ChangeEvent<HTMLInputElement>) {
+    setUser(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   return (
@@ -55,54 +56,41 @@ const Page = () => {
         onSubmit={onSubmit}
       >
         {JSON.stringify(data)}
-        <h2 className="text-2xl font-bold text-neutral-900">{t("welcome")}</h2>
+        <h2 className="text-2xl font-bold">{t("welcome")}</h2>
         <p className="text-sm text-neutral-400">{t("message")}</p>
         <div className="mt-10 flex flex-col gap-5">
+
           <Input
-            onChange={(e) =>
-              setUser((prev) => ({ ...prev, email: e.target.value }))
-            }
+            onChange={updateValue}
+            type="text"
+            inputMode="email"
             name="email"
-            icon={<AtSign size={20} />}
-            className="h-10"
             label={t("email.value")}
-            placeholder={`${t("email.address")} ...`}
-            type={"text"}
-            inputMode={"email"}
-            messages={errors?.email?._errors[0]}
-          />
-          <Input
-            onChange={(e) =>
-              setUser((prev) => ({ ...prev, password: e.target.value }))
-            }
-            name="password"
-            icon={<Lock size={20} />}
-            className="h-10"
-            type="password"
-            label={t("password")}
-            placeholder={`${t("password")} ...`}
-            messages={errors?.password?._errors[0]}
+            placeholder="myemail@gmail.com"
+            description="We'll never share your email with anyone else."
+            className="max-w-xs"
+            validationState={errors?.email?._errors[0] ? "invalid" : "valid"}
+            errorMessage={errors?.email?._errors[0] }
           />
 
-          <div className="flex items-center justify-between">
-            <a className="text-xs text-neutral-400" href="#">
-              {t("forget_password")}
-            </a>
-          </div>
+          <Input
+            onChange={updateValue}
+            type="password"
+            name="password"
+            label={t("password")}
+            placeholder="Your very secure password ..."
+            description="We'll never share your email with anyone else."
+            className="max-w-xs"
+            validationState={errors?.password?._errors[0] ? "invalid" : "valid"}
+            errorMessage={errors?.password?._errors[0] }
+          />
+
+
           <div className="flex flex-wrap gap-2">
-            <Button variant="default" size="lg" loading={loading} type="submit">
+            <Button color="secondary" radius="sm" type="submit" isLoading={loading}>
               {t("sign_in")}
             </Button>
-            <Button variant="secondary" size="lg" type="button">
-              <Image
-                src="/images/google-logo.png"
-                alt="Google Logo"
-                height={128}
-                width={128}
-                className="aspect-square h-5 w-5 object-center"
-              />
-              {t("use_google")}
-            </Button>
+
           </div>
         </div>
       </form>
