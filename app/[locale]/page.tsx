@@ -132,7 +132,7 @@ export default function Home() {
                 <RecordCover />
                 <div className='flex flex-col gap-5'>
                   <TrackData />
-                  <div className='flex items-center gap-2'>
+                  <div className='flex flex-wrap items-center gap-2'>
                     <Button
                       onClick={() => setPlaying(true)}
                       color='danger'
