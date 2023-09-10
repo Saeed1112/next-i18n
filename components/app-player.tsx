@@ -1,7 +1,7 @@
 'use client';
 import { Avatar } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useApp } from '@/app/AppContextProvider';
+import { useApp } from '@/app/AppProvider';
 
 const variants = {
   open: {

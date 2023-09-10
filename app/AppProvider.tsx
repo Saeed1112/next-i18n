@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext({});
 export const useApp = () => useContext(AppContext);
-const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [playlistState, setPlaylistState] = useState(false);
   return (
     <AppContext.Provider
@@ -17,4 +17,4 @@ const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default AppContextProvider;
+export default AppProvider;

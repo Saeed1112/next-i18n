@@ -10,7 +10,7 @@ import ClientSessionProvider from '@/app/ClientSessionProvider';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { NextUiClientProvider } from '@/app/NextUiClientProvider';
-import AppContextProvider from '@/app/AppContextProvider';
+import AppProvider from '@/app/AppProvider';
 
 export function generateStaticParams() {
   return locales.map(({ locale }) => ({ locale }));
@@ -53,13 +53,13 @@ const RootLayout = async function ({
       <body className={`${MonaSans.variable} ${KalamehFont.variable}`}>
         <ClientSessionProvider session={session}>
           <NextUiClientProvider>
-            <AppContextProvider>
+            <AppProvider>
               <div className='flex min-h-screen flex-col font-mona-sans-kalameh'>
                 <NextIntlClientProvider locale={locale} messages={language}>
                   {children}
                 </NextIntlClientProvider>
               </div>
-            </AppContextProvider>
+            </AppProvider>
           </NextUiClientProvider>
         </ClientSessionProvider>
       </body>

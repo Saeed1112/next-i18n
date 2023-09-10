@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { AppPlaylist } from '@/components/app-playlist';
 import { AppPlayer } from '@/components/app-player';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useApp } from '@/app/AppContextProvider';
+import { useApp } from '@/app/AppProvider';
 
 function LayoutBackground({ open }: any) {
   const variants = {

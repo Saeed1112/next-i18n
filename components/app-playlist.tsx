@@ -4,7 +4,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, Button } from '@nextui-org/react';
 import { Play, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useApp } from '@/app/AppContextProvider';
+import { useApp } from '@/app/AppProvider';
 
 const variants = {
   open: {
