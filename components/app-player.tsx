@@ -2,7 +2,7 @@
 import { Avatar, Button } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
-import { Play, SkipBack, SkipForward } from 'lucide-react';
+import { Heart, Play, SkipBack, SkipForward } from 'lucide-react';
 
 const variants = {
   open: {
@@ -60,7 +60,7 @@ function PlayerSeeker() {
 
 function PlayerTrack() {
   return (
-    <div className='flex max-w-xs flex-shrink items-center gap-2'>
+    <div className='flex max-w-[16rem] flex-shrink items-center gap-2'>
       <Avatar
         radius='sm'
         size='lg'
@@ -79,6 +79,21 @@ function PlayerTrack() {
   );
 }
 
+const TrackOptions = () => {
+  return (
+    <div className='flex items-center gap-5'>
+      <Button
+        variant={'light'}
+        isIconOnly
+        radius='full'
+        className='hidden sm:flex'
+      >
+        <Heart size={18} />
+      </Button>
+    </div>
+  );
+};
+
 export function AppPlayer() {
   const { playlistState } = useApp() as any;
 
@@ -95,6 +110,7 @@ export function AppPlayer() {
         <div className='flex flex-1 gap-2 p-2'>
           <PlayerTrack />
           <PlayerControls />
+          <TrackOptions />
         </div>
       </motion.div>
     </AnimatePresence>
