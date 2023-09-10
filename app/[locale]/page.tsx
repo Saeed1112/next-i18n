@@ -116,54 +116,52 @@ export default function Home() {
     <main className='relative max-h-screen'>
       <LayoutBackground />
       <AppPlaylist />
-      <AnimatePresence>
-        <motion.div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] pb-44'>
-          <div className='flex flex-col items-center'>
-            <div className='container flex min-h-screen flex-col justify-center py-16 pb-44'>
-              <div className='flex flex-wrap gap-5'>
-                <RecordCover />
-                <div className='flex flex-col gap-5'>
-                  <TrackData />
-                  <div className='flex flex-wrap items-center gap-2'>
-                    <Button
-                      onClick={() => togglePlaylist()}
-                      color='danger'
-                      isLoading={playing}
-                      startContent={
-                        playing || <Play className='stroke-gray-50' size={16} />
-                      }
-                    >
-                      Play
-                    </Button>
+      <div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] pb-44'>
+        <div className='flex flex-col items-center px-5'>
+          <div className='container flex min-h-screen flex-col justify-center py-16 pb-44'>
+            <div className='flex flex-wrap gap-5'>
+              <RecordCover />
+              <div className='flex flex-col gap-5'>
+                <TrackData />
+                <div className='flex flex-wrap items-center gap-2'>
+                  <Button
+                    onClick={() => togglePlaylist()}
+                    color='danger'
+                    isLoading={playing}
+                    startContent={
+                      playing || <Play className='stroke-gray-50' size={16} />
+                    }
+                  >
+                    Play
+                  </Button>
 
-                    <Dropdown className='font-mona-sans-kalameh'>
-                      <DropdownTrigger>
-                        <Button
-                          color='primary'
-                          startContent={
-                            <DownloadCloud
-                              className=' stroke-gray-50'
-                              size={16}
-                            />
-                          }
-                        >
-                          Download
-                        </Button>
-                      </DropdownTrigger>
-                      <DropdownMenu variant='light' aria-label='Static Actions'>
-                        <DropdownItem key='new'>Mp3 320 - 9.8MB</DropdownItem>
-                        <DropdownItem key='new'>Mp3 128 - 4.4MB</DropdownItem>
-                      </DropdownMenu>
-                    </Dropdown>
+                  <Dropdown className='font-mona-sans-kalameh'>
+                    <DropdownTrigger>
+                      <Button
+                        color='primary'
+                        startContent={
+                          <DownloadCloud
+                            className=' stroke-gray-50'
+                            size={16}
+                          />
+                        }
+                      >
+                        Download
+                      </Button>
+                    </DropdownTrigger>
+                    <DropdownMenu variant='light' aria-label='Static Actions'>
+                      <DropdownItem key='new'>Mp3 320 - 9.8MB</DropdownItem>
+                      <DropdownItem key='new'>Mp3 128 - 4.4MB</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
 
-                    <AddToPlaylist />
-                  </div>
+                  <AddToPlaylist />
                 </div>
               </div>
             </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </div>
       <AppPlayer />
     </main>
   );
