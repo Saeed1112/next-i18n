@@ -117,9 +117,9 @@ export default function Home() {
       <LayoutBackground />
       <AppPlaylist />
       <AnimatePresence>
-        <motion.div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] py-16 pb-44'>
-          <div className='flex flex-col items-center justify-center'>
-            <div className='container flex flex-col px-5'>
+        <motion.div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] pb-44'>
+          <div className='flex flex-col items-center'>
+            <div className='container flex min-h-screen flex-col justify-center py-16 pb-44'>
               <div className='flex flex-wrap gap-5'>
                 <RecordCover />
                 <div className='flex flex-col gap-5'>
