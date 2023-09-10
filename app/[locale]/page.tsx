@@ -16,7 +16,7 @@ import { AppPlayer } from '@/components/app-player';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
 
-function LayoutBackground({ open }: any) {
+function LayoutBackground() {
   const variants = {
     open: {
       paddingRight: '24rem',
@@ -114,8 +114,8 @@ export default function Home() {
   const { togglePlaylist } = useApp() as any;
   return (
     <main className='relative max-h-screen'>
-      <LayoutBackground open={playing} />
-      <AppPlaylist open={playing} />
+      <LayoutBackground />
+      <AppPlaylist />
       <AnimatePresence>
         <motion.div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] py-16 pb-44'>
           <div className='flex flex-col items-center justify-center'>
@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         </motion.div>
       </AnimatePresence>
-      <AppPlayer open={playing} />
+      <AppPlayer />
     </main>
   );
 }
