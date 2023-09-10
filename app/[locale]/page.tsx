@@ -25,23 +25,16 @@ function LayoutBackground({ open }: any) {
     },
   };
   return (
-    <AnimatePresence>
-      <motion.div
-        animate={open ? 'open' : 'closed'}
-        initial={['closed']}
-        variants={variants}
-        className='fixed inset-0'
-      >
-        <Image
-          src={'/images/the-weeknd.webp'}
-          className='h-full w-full object-cover object-center'
-          alt={'Background'}
-          height={1028}
-          width={2080}
-        />
-        <div className='absolute inset-0 bg-gradient-radial from-black/50 to-black backdrop-blur'></div>
-      </motion.div>
-    </AnimatePresence>
+    <div className='fixed inset-0'>
+      <Image
+        src={'/images/the-weeknd.webp'}
+        className='h-full w-full object-cover object-center'
+        alt={'Background'}
+        height={1028}
+        width={2080}
+      />
+      <div className='absolute inset-0 bg-gradient-radial from-black/50 to-black backdrop-blur'></div>
+    </div>
   );
 }
 
