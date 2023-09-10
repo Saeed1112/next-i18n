@@ -1,20 +1,24 @@
 'use client';
 import { Avatar } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useApp } from '@/app/AppContextProvider';
 
-export function AppPlayer({ open }: any) {
-  const variants = {
-    open: {
-      '--right': '25rem',
-    },
-    closed: {
-      '--right': 0,
-    },
-  } as any;
+const variants = {
+  open: {
+    '--right': '25rem',
+  },
+  closed: {
+    '--right': 0,
+  },
+} as any;
+
+export function AppPlayer() {
+  const { playlistState } = useApp() as any;
+
   return (
     <AnimatePresence initial={false}>
       <motion.div
-        animate={open ? 'open' : 'closed'}
+        animate={playlistState ? 'open' : 'closed'}
         initial={['open']}
         variants={variants}
         className='fixed inset-2 top-[unset] z-50 flex items-center justify-center rounded-md bg-black/80 fill-black/80 p-2 backdrop-blur lg:right-[--right]'

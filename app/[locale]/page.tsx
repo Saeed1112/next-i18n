@@ -10,10 +10,11 @@ import {
   Select,
   SelectItem,
 } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AppPlaylist } from '@/components/app-playlist';
 import { AppPlayer } from '@/components/app-player';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useApp } from '@/app/AppContextProvider';
 
 function LayoutBackground({ open }: any) {
   const variants = {
@@ -110,9 +111,7 @@ function AddToPlaylist() {
 
 export default function Home() {
   const [playing, setPlaying] = useState(false);
-  useEffect(() => {
-    if (playing) setTimeout(() => setPlaying(false), 4500);
-  }, [playing]);
+  const { togglePlaylist } = useApp() as any;
   return (
     <main className='relative max-h-screen'>
       <LayoutBackground open={playing} />
@@ -127,7 +126,7 @@ export default function Home() {
                   <TrackData />
                   <div className='flex flex-wrap items-center gap-2'>
                     <Button
-                      onClick={() => setPlaying(true)}
+                      onClick={() => togglePlaylist()}
                       color='danger'
                       isLoading={playing}
                       startContent={
