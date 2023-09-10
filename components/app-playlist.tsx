@@ -36,7 +36,9 @@ export function AppPlaylist() {
             <SvgShape className='-bottom-3 -rotate-90' />
             <ChevronLeft
               strokeWidth={5}
-              className={cn('w-4', { 'rotate-180': playlistState })}
+              className={cn('w-4 transition-all duration-300', {
+                'rotate-180': playlistState,
+              })}
             />
           </div>
         </div>
