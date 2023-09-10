@@ -17,7 +17,7 @@ const variants = {
 
 function PlaylistCard() {
   return (
-    <div className='group flex w-full select-none gap-2 rounded-md border-1 border-dashed border-transparent p-2 first:mt-14 hover:border-default/50 hover:bg-default/10 hover:backdrop-blur-2xl'>
+    <div className='group flex w-full select-none gap-2 rounded-md p-2 first:mt-14 hover:bg-danger/10 hover:backdrop-blur-2xl'>
       <Avatar
         draggable='false'
         radius='sm'
@@ -31,8 +31,13 @@ function PlaylistCard() {
           The Weeknd
         </span>
       </div>
-      <div className='ms-auto flex flex-col  items-center justify-center gap-1'>
-        <Button isIconOnly radius={'full'} className='mt-auto' size={'sm'}>
+      <div className='ms-auto flex flex-col items-center justify-center gap-1'>
+        <Button
+          isIconOnly
+          radius={'full'}
+          className='mt-auto bg-danger'
+          size={'sm'}
+        >
           <Play size={14} className='fill-gray-50' />
         </Button>
         <span className='text-[0.65rem] text-gray-500'>03:22</span>
@@ -49,7 +54,7 @@ export function AppPlaylist({ open }: any) {
         animate={playlistState ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
-        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/90 backdrop-blur md:left-[unset] md:w-96 lg:bottom-2'
+        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/80 backdrop-blur md:left-[unset] md:w-96 lg:bottom-2'
       >
         <div className='relative flex flex-1'>
           <ScrollArea className='absolute inset-0 w-full rounded-md'>
