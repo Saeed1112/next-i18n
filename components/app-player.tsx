@@ -5,19 +5,19 @@ import { AnimatePresence, motion } from 'framer-motion';
 export function AppPlayer({ open }: any) {
   const variants = {
     open: {
-      marginInlineEnd: '24.5rem',
+      '--right': '25rem',
     },
     closed: {
-      marginInlineEnd: 0,
+      '--right': 0,
     },
-  };
+  } as any;
   return (
     <AnimatePresence initial={false}>
       <motion.div
         animate={open ? 'open' : 'closed'}
         initial={['open']}
         variants={variants}
-        className='fixed inset-2 top-[unset] z-50 flex items-center justify-center rounded-md bg-black/80 fill-black/80 p-2 backdrop-blur'
+        className='fixed inset-2 top-[unset] z-50 flex items-center justify-center rounded-md bg-black/80 fill-black/80 p-2 backdrop-blur lg:right-[--right]'
       >
         <div className='flex flex-1 gap-2'>
           <Avatar radius='sm' size='lg' src={'/images/the-weeknd.webp'} />

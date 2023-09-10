@@ -7,12 +7,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const variants = {
   open: {
-    x: '0',
+    x: 0,
   },
   closed: {
-    x: '100%',
+    x: '110%',
   },
-};
+} as any;
 
 export function AppPlaylist({ open }: any) {
   return (
@@ -21,7 +21,7 @@ export function AppPlaylist({ open }: any) {
         animate={open ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
-        className='fixed bottom-2 end-2 top-2 z-50 flex w-96 overflow-hidden rounded-md bg-neutral-950'
+        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-neutral-950 md:left-[unset] md:w-96 lg:bottom-2'
       >
         <div className='absolute inset-0'>
           <Image
