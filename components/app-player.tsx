@@ -48,7 +48,7 @@ function PlayerControls() {
 
 function PlayerSeeker() {
   return (
-    <div className='h-1 rounded-t-md bg-primary/30'>
+    <div className='h-1 rounded-t-md bg-gray-50/50'>
       <div className='relative flex h-full w-1/3 rounded-t-md bg-primary'>
         <div className='ease-[cubic-bezier(1,-0.4,0,1.4)] absolute -end-2 -top-1.5 h-4 scale-75 select-none rounded-md bg-primary px-2 text-xs font-medium transition-all duration-200 group-hover:scale-100'>
           00:32
