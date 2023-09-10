@@ -49,7 +49,7 @@ export function AppPlaylist({ open }: any) {
         animate={playlistState ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
-        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/50 md:left-[unset] md:w-96 lg:bottom-2'
+        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/90 backdrop-blur md:left-[unset] md:w-96 lg:bottom-2'
       >
         <div className='relative flex flex-1'>
           <ScrollArea className='absolute inset-0 w-full rounded-md'>
