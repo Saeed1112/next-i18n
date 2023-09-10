@@ -1,7 +1,8 @@
 'use client';
-import { Avatar } from '@nextui-org/react';
+import { Avatar, Button } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
+import { Play, SkipBack, SkipForward } from 'lucide-react';
 
 const variants = {
   open: {
@@ -32,10 +33,23 @@ export function AppPlayer() {
           </div>
         </div>
         <div className='flex flex-1 gap-2'>
-          <Avatar radius='sm' size='lg' src={'/images/the-weeknd.webp'} />
-          <div className='flex flex-col justify-center'>
-            <h4 className='text-base font-medium'>Out of time</h4>
-            <span className='text-xs text-gray-400'>The Weeknd</span>
+          <div className='flex max-w-xs items-center gap-2'>
+            <Avatar radius='sm' size='lg' src={'/images/the-weeknd.webp'} />
+            <div className='flex flex-col justify-center'>
+              <h4 className='text-base font-medium'>Out of time</h4>
+              <span className='text-xs text-gray-400'>The Weeknd</span>
+            </div>
+          </div>
+          <div className='flex flex-1 items-center justify-center gap-5'>
+            <Button variant={'flat'} isIconOnly radius='full' size={'sm'}>
+              <SkipBack className='fill-gray-50' size={16} />
+            </Button>
+            <Button isIconOnly variant={'flat'} radius='full'>
+              <Play className='fill-gray-50' size={18} />
+            </Button>
+            <Button isIconOnly radius='full' variant={'flat'} size={'sm'}>
+              <SkipForward className='fill-gray-50' size={16} />
+            </Button>
           </div>
         </div>
       </motion.div>
