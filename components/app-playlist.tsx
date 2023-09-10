@@ -12,7 +12,7 @@ const variants = {
     x: 0,
   },
   closed: {
-    x: '100%',
+    x: 'calc(100% + 0.5rem)',
   },
 } as Variants;
 
