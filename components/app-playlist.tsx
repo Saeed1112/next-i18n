@@ -5,6 +5,7 @@ import { Avatar, Button } from '@nextui-org/react';
 import { Play, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
+import { playlist } from '@/data/playlist.json';
 
 const variants = {
   open: {
@@ -15,20 +16,20 @@ const variants = {
   },
 } as any;
 
-function PlaylistCard() {
+function PlaylistCard({ track }: any) {
   return (
     <div className='group flex w-full select-none gap-2 rounded-md p-2 first:mt-14 hover:bg-danger/10 hover:backdrop-blur-2xl'>
       <Avatar
         draggable='false'
         radius='sm'
         size='lg'
-        src={'/images/the-weeknd.webp'}
+        src={track.cover}
         className='flex-shrink-0'
       />
       <div className='flex flex-col justify-center'>
-        <h2 className='font-medium'>Out of time</h2>
+        <h2 className='font-medium'>{track.name}</h2>
         <span className='text-sm text-gray-500 transition-all duration-200 group-hover:text-gray-300'>
-          The Weeknd
+          {track.artist}
         </span>
       </div>
       <div className='ms-auto flex flex-col items-center justify-center gap-1'>
@@ -71,8 +72,8 @@ export function AppPlaylist({ open }: any) {
               </Button>
             </div>
             <div className='flex flex-col px-5'>
-              {new Array(40).fill(0).map((_, index) => (
-                <PlaylistCard key={index} />
+              {playlist.map((_, index) => (
+                <PlaylistCard key={index} track={_} />
               ))}
             </div>
             <div className='mb-16 mt-5 text-center text-xs font-medium text-gray-400'>

@@ -1,9 +1,74 @@
 {
   "playlist": [
     {
-      "name": "Feels Like Summer",
-      "artist": "Childish Gambino",
-      "cover": ""
+      "name": "Male Fantasy",
+      "artist": "Billie Eilish",
+      "cover": "https://kjmusic.ir/wp-content/uploads/2021/08/IMG_20210806_005457.jpg"
+    },
+    {
+      "name": "Lovesick",
+      "artist": "Laufey",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230908_161435.jpg"
+    },
+    {
+      "name": "LUXURY LIFE",
+      "artist": "Busta Rhymes ft. Coi Leray",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230908_155340.jpg"
+    },
+    {
+      "name": "Long Goodbye",
+      "artist": "LP",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230908_153519.jpg"
+    },
+    {
+      "name": "XQ Sigues Pasando :(",
+      "artist": "Abraham Mateo & Sebastián Yatra",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230908_154707.jpg"
+    },
+    {
+      "name": "Get A Guitar",
+      "artist": "RIIZE",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230907_214743.jpg"
+    },
+    {
+      "name": "7HEAVEN",
+      "artist": "Purple Kiss",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230907_214743.jpg"
+    },
+    {
+      "name": "Sen Yakıştı",
+      "artist": "Seçil Gür",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230904_003123.jpg"
+    },
+    {
+      "name": "Sen Oyna",
+      "artist": "Eypio, Kibariye & Tuğberk Işık",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230903_014055.jpg"
+    },
+    {
+      "name": "Kids",
+      "artist": "Steve Aoki & Tony Junior",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230901_200807.jpg"
+    },
+    {
+      "name": "Afterglow",
+      "artist": "Sam Fischer",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230901_200442.jpg"
+    },
+    {
+      "name": "MALA SUERTE",
+      "artist": "Lola Indigo & DELLAFUENTE",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230901_194736.jpg"
+    },
+    {
+      "name": "Demons",
+      "artist": "Doja Cat",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230901_182655.jpg"
+    },
+    {
+      "name": "Laundry Day",
+      "artist": "L Devine",
+      "cover": "https://audiok.ir/wp-content/uploads/2023/09/IMG_20230901_185558.jpg"
     }
   ]
 }
