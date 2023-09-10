@@ -49,18 +49,8 @@ export function AppPlaylist({ open }: any) {
         animate={playlistState ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
-        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-neutral-950 md:left-[unset] md:w-96 lg:bottom-2'
+        className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/50 md:left-[unset] md:w-96 lg:bottom-2'
       >
-        <div className='absolute inset-0'>
-          <Image
-            src={'/images/playlist.webp'}
-            className='h-full w-full object-cover object-center'
-            alt={'Background'}
-            height={1028}
-            width={600}
-          />
-          <div className='absolute inset-0 bg-gradient-radial from-black/80 to-black backdrop-blur'></div>
-        </div>
         <div className='relative flex flex-1'>
           <ScrollArea className='absolute inset-0 w-full rounded-md'>
             <div className='pointer-events-none absolute left-0 right-0 top-0 z-30 flex w-full items-center bg-gradient-to-b from-black via-black to-transparent px-5 py-4'>
