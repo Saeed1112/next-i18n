@@ -2,7 +2,7 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, Button } from '@nextui-org/react';
 import { Play, X } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Variant, Variants } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
 import { playlist } from '@/data/playlist.json';
 
@@ -13,45 +13,14 @@ const variants = {
   closed: {
     x: '110%',
   },
-} as any;
-
-function PlaylistCard({ track }: any) {
-  return (
-    <div className='group flex w-full select-none gap-2 rounded-md p-2 first:mt-14 hover:bg-danger/10 hover:backdrop-blur-2xl'>
-      <Avatar
-        draggable='false'
-        radius='sm'
-        size='lg'
-        src={track.cover}
-        className='flex-shrink-0'
-      />
-      <div className='flex flex-col justify-center overflow-hidden'>
-        <h2 className='font-medium'>{track.name}</h2>
-        <span className='overflow-hidden truncate text-sm text-gray-500 transition-all duration-200 group-hover:text-gray-300'>
-          {track.artist} asd sa fasf asf adfsd gddfsvdcsfghs dfxc sdfg
-        </span>
-      </div>
-
-      <div className='ms-auto flex flex-col items-center justify-center gap-1'>
-        <Button
-          isIconOnly
-          radius={'full'}
-          className='mt-auto bg-danger'
-          size={'sm'}
-        >
-          <Play size={14} className='fill-gray-50' />
-        </Button>
-        <span className='text-[0.65rem] text-gray-500'>03:22</span>
-      </div>
-    </div>
-  );
-}
+} as Variants;
 
 export function AppPlaylist({ open }: any) {
   const { playlistState, togglePlaylist } = useApp() as any;
   return (
     <AnimatePresence initial={false}>
       <motion.div
+        transition={{ type: 'tween' }}
         animate={playlistState ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
@@ -84,5 +53,37 @@ export function AppPlaylist({ open }: any) {
         </div>
       </motion.div>
     </AnimatePresence>
+  );
+}
+
+function PlaylistCard({ track }: any) {
+  return (
+    <div className='group flex w-full select-none gap-2 rounded-md p-2 first:mt-14 hover:bg-default/10 hover:backdrop-blur-2xl'>
+      <Avatar
+        draggable='false'
+        radius='sm'
+        size='lg'
+        src={track.cover}
+        className='flex-shrink-0'
+      />
+      <div className='flex flex-col justify-center overflow-hidden'>
+        <h2 className='line-clamp-2 font-medium'>{track.name}</h2>
+        <span className='overflow-hidden truncate text-sm text-gray-500 transition-all duration-200 group-hover:text-gray-300'>
+          {track.artist}
+        </span>
+      </div>
+
+      <div className='ms-auto flex flex-col items-center justify-center gap-1'>
+        <Button
+          isIconOnly
+          radius={'full'}
+          className='mt-auto bg-danger'
+          size={'sm'}
+        >
+          <Play size={14} className='fill-gray-50' />
+        </Button>
+        <span className='text-[0.65rem] text-gray-500'>03:22</span>
+      </div>
+    </div>
   );
 }

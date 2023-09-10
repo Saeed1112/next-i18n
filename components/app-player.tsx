@@ -21,6 +21,7 @@ export function AppPlayer() {
         animate={playlistState ? 'open' : 'closed'}
         initial={['open']}
         variants={variants}
+        transition={{ type: 'tween' }}
         className='fixed inset-2 top-[unset] z-50 flex items-center justify-center rounded-md bg-black/80 fill-black/80 p-2 backdrop-blur lg:right-[--right]'
       >
         <div className='flex flex-1 gap-2'>
