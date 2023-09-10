@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, Button } from '@nextui-org/react';
 import { Play, X } from 'lucide-react';
@@ -26,12 +25,13 @@ function PlaylistCard({ track }: any) {
         src={track.cover}
         className='flex-shrink-0'
       />
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center overflow-hidden'>
         <h2 className='font-medium'>{track.name}</h2>
-        <span className='text-sm text-gray-500 transition-all duration-200 group-hover:text-gray-300'>
-          {track.artist}
+        <span className='overflow-hidden truncate text-sm text-gray-500 transition-all duration-200 group-hover:text-gray-300'>
+          {track.artist} asd sa fasf asf adfsd gddfsvdcsfghs dfxc sdfg
         </span>
       </div>
+
       <div className='ms-auto flex flex-col items-center justify-center gap-1'>
         <Button
           isIconOnly
@@ -57,7 +57,7 @@ export function AppPlaylist({ open }: any) {
         variants={variants}
         className='fixed bottom-[5.5rem] end-2 left-2 top-2 z-50 flex w-auto overflow-hidden rounded-md bg-black/80 backdrop-blur md:left-[unset] md:w-96 lg:bottom-2'
       >
-        <div className='relative flex flex-1'>
+        <div className='relative flex w-full flex-1 flex-col'>
           <ScrollArea className='absolute inset-0 w-full rounded-md'>
             <div className='pointer-events-none absolute left-0 right-0 top-0 z-30 flex w-full items-center bg-gradient-to-b from-black via-black to-transparent px-5 py-4'>
               <span>Playlist</span>
