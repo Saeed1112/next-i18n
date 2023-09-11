@@ -35,7 +35,16 @@ export function MoreAlbums() {
                       width={300}
                       alt={album.albumName}
                     />
-                    <div className='flex items-center gap-2'>
+                    <div className='flex flex-1 items-center gap-2 overflow-hidden'>
+                      <div className='flex flex-1 flex-col overflow-hidden'>
+                        <h3 className='overflow-hidden truncate text-xl font-semibold'>
+                          {album.albumName}
+                        </h3>
+                        <p className='text-xs font-light text-gray-300 sm:text-sm'>
+                          {album.tracks} Songs, 1hrs 23min
+                        </p>
+                      </div>
+
                       <Button
                         color='primary'
                         isIconOnly
@@ -45,14 +54,6 @@ export function MoreAlbums() {
                       >
                         <Play size={16} className='ms-0.5' />
                       </Button>
-                      <div className='flex flex-col justify-center'>
-                        <h3 className='text-xl font-semibold'>
-                          {album.albumName}
-                        </h3>
-                        <p className='text-xs font-light text-gray-300 sm:text-sm'>
-                          {album.tracks} Songs, 1hrs 23min
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>
