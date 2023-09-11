@@ -49,7 +49,7 @@ export function MoreAlbums() {
                         <h3 className='text-xl font-semibold'>
                           {album.albumName}
                         </h3>
-                        <p className='text-sm font-light text-gray-300'>
+                        <p className='text-xs font-light text-gray-300 sm:text-sm'>
                           {album.tracks} Songs, 1hrs 23min
                         </p>
                       </div>
