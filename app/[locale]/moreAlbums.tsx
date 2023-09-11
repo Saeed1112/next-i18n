@@ -3,14 +3,22 @@ import { albums } from '@/data/albums.json';
 import 'swiper/css';
 import Image from 'next/image';
 import { Button } from '@nextui-org/react';
-import { Play } from 'lucide-react';
+import { Heart, Play } from 'lucide-react';
+import { Chip } from '@nextui-org/chip';
+import { FreeMode } from 'swiper/modules';
+import PlayButton from '@/components/playButton';
 
 export function MoreAlbums() {
   return (
     <div className='mt-16 flex flex-col'>
       <h2>Similar</h2>
       <div className='flex'>
-        <Swiper slidesPerView={'auto'} spaceBetween={30} freeMode={true}>
+        <Swiper
+          slidesPerView={'auto'}
+          spaceBetween={30}
+          freeMode
+          modules={[FreeMode]}
+        >
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}
@@ -26,7 +34,18 @@ export function MoreAlbums() {
                   width={390}
                 />
                 <div className='relative z-20 flex h-full w-full flex-col justify-between px-5 py-5'>
-                  <div>Top</div>
+                  <div className='flex items-center justify-between'>
+                    <Chip
+                      size='sm'
+                      className='bg-neutral-900 text-xs'
+                      radius='sm'
+                    >
+                      The Weeknd
+                    </Chip>
+                    <Button size='sm' variant='light' isIconOnly radius='full'>
+                      <Heart size={14} />
+                    </Button>
+                  </div>
                   <div className='flex gap-2'>
                     <Image
                       className='h-20 w-20 rounded-md object-cover object-center'
@@ -45,15 +64,7 @@ export function MoreAlbums() {
                         </p>
                       </div>
 
-                      <Button
-                        color='primary'
-                        isIconOnly
-                        size='sm'
-                        variant={'ghost'}
-                        radius='full'
-                      >
-                        <Play size={16} className='ms-0.5' />
-                      </Button>
+                      <PlayButton />
                     </div>
                   </div>
                 </div>

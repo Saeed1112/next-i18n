@@ -6,6 +6,7 @@ import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
 import { playlist } from '@/data/playlist.json';
 import { cn } from '@/lib/utils';
+import PlayButton from '@/components/playButton';
 
 const variants = {
   open: {
@@ -98,14 +99,7 @@ function PlaylistCard({ track }: any) {
       </div>
 
       <div className='ms-auto flex flex-col items-center justify-center gap-1'>
-        <Button
-          isIconOnly
-          radius={'full'}
-          className='mt-auto bg-danger'
-          size={'sm'}
-        >
-          <Play size={14} className='fill-gray-50' />
-        </Button>
+        <PlayButton />
         <span className='text-[0.65rem] text-gray-500'>03:22</span>
       </div>
     </div>
