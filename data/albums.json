@@ -1,0 +1,33 @@
+{
+  "albums": [
+    {
+      "artistCover": "https://images.paramount.tech/uri/mgid:arc:imageassetref:mtv.com:cbca1ada-dfb9-11ec-a53e-164563049251?quality=0.7&gen=ntrn&legacyStatusCode=true",
+      "albumCover": "https://maja-colman.be/images/album2.png",
+      "albumName": "Deezer Sessions",
+      "tracks": 11,
+      "duration": 3324
+    },
+    {
+      "artistCover": "https://www.udiscovermusic.com/wp-content/uploads/2022/08/The-Weeknd-Theo-Wargo-copy-1000x600.jpg",
+      "albumCover": "https://i1.sndcdn.com/artworks-1P9bcRRS22hU-0-t500x500.jpg",
+      "albumName": "Out of time",
+      "tracks": 8,
+      "duration": 2045
+    },
+    {
+      "artistCover": "https://nullee.storage.iran.liara.space/0081242de681fedef650655b28db47ff66143a80.webp",
+      "albumCover": "https://thecentraltrend.com/wp-content/uploads/2021/02/olivia-obrien-album-cover-900x900.jpg",
+      "albumName": "Was it even Real?",
+      "tracks": 8,
+      "duration": 1685
+    }
+  ,
+    {
+      "artistCover": "https://nullee.storage.iran.liara.space/0081242de681fedef650655b28db47ff66143a80.webp",
+      "albumCover": "https://thecentraltrend.com/wp-content/uploads/2021/02/olivia-obrien-album-cover-900x900.jpg",
+      "albumName": "Any?",
+      "tracks": 8,
+      "duration": 1685
+    }
+  ]
+}

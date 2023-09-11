@@ -10,18 +10,16 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
 import {
-  DownloadCloud,
+  Copy,
   Heart,
   Link2,
   ListEnd,
   MoreVertical,
   Play,
-  Share,
   Share2,
   SkipBack,
   SkipForward,
 } from 'lucide-react';
-import Link from 'next/link';
 
 const variants = {
   open: {
@@ -98,7 +96,25 @@ function PlayerTrack() {
   );
 }
 
-const TrackOptions = () => {
+const PlayerOptions = () => {
+  const options = [
+    {
+      icon: <Heart size={16} />,
+      name: 'Like',
+    },
+    {
+      icon: <ListEnd size={16} />,
+      name: 'Add to playlist',
+    },
+    {
+      icon: <Copy size={16} />,
+      name: 'Copy link',
+    },
+    {
+      icon: <Link2 size={16} />,
+      name: 'Open',
+    },
+  ];
   return (
     <div className='flex items-center gap-5'>
       <Dropdown className='font-mona-sans-kalameh' placement='top-end'>
@@ -108,18 +124,11 @@ const TrackOptions = () => {
           </Button>
         </DropdownTrigger>
         <DropdownMenu variant='light' aria-label='Static Actions'>
-          <DropdownItem key='new' startContent={<Heart size={16} />}>
-            Like
-          </DropdownItem>
-          <DropdownItem startContent={<ListEnd size={16} />} key='new'>
-            Add to playlist
-          </DropdownItem>
-          <DropdownItem startContent={<Share2 size={16} />} key='new'>
-            Share
-          </DropdownItem>
-          <DropdownItem startContent={<Link2 size={16} />} key='new'>
-            Open
-          </DropdownItem>
+          {options.map((item) => (
+            <DropdownItem key={item.name} startContent={item.icon}>
+              {item.name}
+            </DropdownItem>
+          ))}
         </DropdownMenu>
       </Dropdown>
     </div>
@@ -142,7 +151,7 @@ export function AppPlayer() {
         <div className='flex flex-1 gap-2 p-2'>
           <PlayerTrack />
           <PlayerControls />
-          <TrackOptions />
+          <PlayerOptions />
         </div>
       </motion.div>
     </AnimatePresence>

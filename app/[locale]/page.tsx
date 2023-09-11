@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { AppPlaylist } from '@/components/app-playlist';
 import { AppPlayer } from '@/components/app-player';
 import { useApp } from '@/app/AppProvider';
+import { MoreAlbums } from '@/app/[locale]/moreAlbums';
 
 function LayoutBackground() {
   const variants = {
@@ -165,7 +166,7 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
   const { togglePlaylist } = useApp() as any;
   return (
-    <main className='relative max-h-screen'>
+    <main className='relative max-h-screen overflow-x-hidden'>
       <LayoutBackground />
       <AppPlaylist />
       <div className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-44'>
@@ -177,7 +178,7 @@ export default function Home() {
               <TrackActions />
             </div>
           </div>
-          <div className='flex items-center'>Hello world</div>
+          <MoreAlbums />
         </div>
       </div>
       <AppPlayer />

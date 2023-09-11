@@ -14,6 +14,30 @@ module.exports = withNextIntl({
       {
         hostname: 'yt3.googleusercontent.com',
       },
+      {
+        hostname: 'maja-colman.be',
+      },
+      {
+        hostname: 'thecentraltrend.com',
+      },
+      {
+        hostname: 'i1.sndcdn.com',
+      },
+      {
+        hostname: 'thecentraltrend.com',
+      },
+      {
+        hostname: 'images.paramount.tech',
+      },
+      {
+        hostname: 'www.udiscovermusic.com',
+      },
+      {
+        hostname: 'i0.wp.com',
+      },
+      {
+        hostname: 'nullee.storage.iran.liara.space',
+      },
     ],
   },
 });
