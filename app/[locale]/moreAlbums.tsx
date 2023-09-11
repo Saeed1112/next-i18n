@@ -23,11 +23,11 @@ export function MoreAlbums() {
                 <Image
                   src={album.artistCover}
                   alt={album.albumName}
-                  className='absolute h-full w-full object-cover object-center'
+                  className='absolute h-full w-full rounded-md object-cover object-center'
                   height={210}
                   width={390}
                 />
-                <div className='relative z-20 flex h-full w-full flex-col justify-between px-5 py-5'>
+                <div className='relative z-20 flex h-full w-full flex-col justify-between p-2 sm:p-5'>
                   <div className='flex items-center justify-between'>
                     <Chip
                       size='sm'
@@ -42,7 +42,7 @@ export function MoreAlbums() {
                   </div>
                   <div className='flex gap-2'>
                     <Image
-                      className='h-20 w-20 rounded-md object-cover object-center'
+                      className='h-20 w-20 rounded-md bg-neutral-800 object-cover object-center'
                       src={album.albumCover}
                       height={300}
                       width={300}
