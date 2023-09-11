@@ -16,7 +16,7 @@ export function MoreAlbums() {
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}
-              className='aspect-[16/10] w-full min-w-[20rem] max-w-[29rem] sm:!w-[26rem]'
+              className='aspect-[16/10] w-full min-w-[20rem] max-w-[28rem] sm:!w-[26rem]'
             >
               <div className='relative h-full w-full overflow-hidden rounded-md bg-default'>
                 <div className='absolute inset-0 z-10 bg-gradient-radial from-black/60 to-black'></div>
@@ -27,7 +27,7 @@ export function MoreAlbums() {
                   height={210}
                   width={390}
                 />
-                <div className='relative z-20 flex h-full w-full flex-col justify-between p-2 sm:p-5'>
+                <div className='relative z-20 flex h-full w-full flex-col justify-between p-3 sm:p-5'>
                   <div className='flex items-center justify-between'>
                     <Chip
                       size='sm'
