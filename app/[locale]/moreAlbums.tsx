@@ -14,7 +14,7 @@ export function MoreAlbums() {
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}
-              className='aspect-video w-full sm:!w-[26rem]'
+              className='aspect-video w-full min-w-[20rem] sm:!w-[26rem]'
             >
               <div className='relative h-full w-full overflow-hidden rounded-md bg-default'>
                 <div className='absolute inset-0 z-10 bg-gradient-radial from-black/60 to-black'></div>
