@@ -38,6 +38,12 @@ module.exports = withNextIntl({
       {
         hostname: 'nullee.storage.iran.liara.space',
       },
+      {
+        hostname: 'cdn.wegow.com',
+      },
+      {
+        hostname: 'www.the-sun.com',
+      },
     ],
   },
 });
