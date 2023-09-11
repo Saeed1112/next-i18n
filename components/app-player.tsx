@@ -116,7 +116,7 @@ const PlayerOptions = () => {
     },
   ];
   return (
-    <div className='flex items-center gap-5'>
+    <div className='flex  items-center gap-5'>
       <Dropdown className='font-mona-sans-kalameh' placement='top-end'>
         <DropdownTrigger>
           <Button isIconOnly radius='full' variant='light' color='default'>
@@ -145,7 +145,7 @@ export function AppPlayer() {
         initial={['open']}
         variants={variants}
         transition={{ type: 'tween' }}
-        className='group fixed inset-2 top-[unset] z-50 flex flex-col justify-center rounded-md bg-black/80 fill-black/80 backdrop-blur lg:right-[--right]'
+        className='group fixed inset-2 top-[unset] z-50 flex select-none flex-col justify-center rounded-md bg-black/80 fill-black/80 backdrop-blur lg:right-[--right]'
       >
         <PlayerSeeker />
         <div className='flex flex-1 gap-2 p-2'>

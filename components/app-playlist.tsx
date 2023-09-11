@@ -48,7 +48,7 @@ export function AppPlaylist() {
         animate={playlistState ? 'open' : 'closed'}
         initial={['closed']}
         variants={variants}
-        className='fixed bottom-[5.75rem] end-2 left-2 top-2 z-50 flex w-auto rounded-md bg-black/80 backdrop-blur sm:left-[unset] sm:w-96 lg:bottom-2'
+        className='fixed bottom-[5.75rem] end-2 left-2 top-2 z-50 flex w-auto select-none rounded-md bg-black/80 backdrop-blur sm:left-[unset] sm:w-96 lg:bottom-2'
       >
         <PlaylistControl />
         <div className='relative flex w-full flex-1 flex-col'>
