@@ -10,7 +10,10 @@ export function MoreAlbums() {
       <div className='flex'>
         <Swiper slidesPerView={'auto'} spaceBetween={30} freeMode={true}>
           {albums.map((album: any) => (
-            <SwiperSlide key={album.albumName} className='!h-52 !w-96'>
+            <SwiperSlide
+              key={album.albumName}
+              className='aspect-video w-full sm:!w-96'
+            >
               <div className='relative h-full w-full overflow-hidden rounded-md bg-default'>
                 <div className='absolute inset-0 z-10 bg-gradient-radial from-black/20 to-black backdrop-blur'></div>
                 <Image
@@ -35,7 +38,7 @@ export function MoreAlbums() {
                         {album.albumName}
                       </h3>
                       <p className='text-sm font-light text-gray-300'>
-                        {album.tracks} Songs
+                        {album.tracks} Songs, 1hrs 23min
                       </p>
                     </div>
                   </div>
