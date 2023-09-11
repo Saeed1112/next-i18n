@@ -16,6 +16,28 @@ const variants = {
   },
 } as Variants;
 
+function PlaylistControl() {
+  const { playlistState, togglePlaylist } = useApp() as any;
+
+  return (
+    <div
+      className='absolute -left-5 bottom-0 top-0 flex w-5 items-center justify-center'
+      onClick={() => togglePlaylist()}
+    >
+      <div className='relative flex h-16 w-full cursor-pointer items-center justify-center rounded-s-lg bg-black/80 fill-black/80'>
+        <SvgShape className={'-top-3'} />
+        <SvgShape className='-bottom-3 -rotate-90' />
+        <ChevronLeft
+          strokeWidth={5}
+          className={cn('w-4 transition-all duration-300', {
+            'rotate-180': playlistState,
+          })}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function AppPlaylist() {
   const { playlistState, togglePlaylist } = useApp() as any;
   return (
@@ -27,21 +49,7 @@ export function AppPlaylist() {
         variants={variants}
         className='fixed bottom-[5.75rem] end-2 left-2 top-2 z-50 flex w-auto rounded-md bg-black/80 backdrop-blur sm:left-[unset] sm:w-96 lg:bottom-2'
       >
-        <div
-          className='absolute -left-5 bottom-0 top-0 flex w-5 items-center justify-center'
-          onClick={() => togglePlaylist()}
-        >
-          <div className='relative flex h-12 w-full cursor-pointer items-center justify-center rounded-s-lg bg-black/80 fill-black/80'>
-            <SvgShape className={'-top-3'} />
-            <SvgShape className='-bottom-3 -rotate-90' />
-            <ChevronLeft
-              strokeWidth={5}
-              className={cn('w-4 transition-all duration-300', {
-                'rotate-180': playlistState,
-              })}
-            />
-          </div>
-        </div>
+        <PlaylistControl />
         <div className='relative flex w-full flex-1 flex-col'>
           <ScrollArea className='absolute inset-0 w-full rounded-md'>
             <div className='pointer-events-none absolute left-0 right-0 top-0 z-30 flex w-full items-center bg-gradient-to-b from-black via-black to-transparent px-5 py-4'>
