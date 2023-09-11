@@ -2,6 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { albums } from '@/data/albums.json';
 import 'swiper/css';
 import Image from 'next/image';
+import { Button } from '@nextui-org/react';
+import { Play } from 'lucide-react';
 
 export function MoreAlbums() {
   return (
@@ -12,10 +14,10 @@ export function MoreAlbums() {
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}
-              className='aspect-video w-full sm:!w-96'
+              className='aspect-video w-full sm:!w-[26rem]'
             >
               <div className='relative h-full w-full overflow-hidden rounded-md bg-default'>
-                <div className='absolute inset-0 z-10 bg-gradient-radial from-black/20 to-black backdrop-blur'></div>
+                <div className='absolute inset-0 z-10 bg-gradient-radial from-black/60 to-black'></div>
                 <Image
                   src={album.artistCover}
                   alt={album.albumName}
@@ -33,13 +35,24 @@ export function MoreAlbums() {
                       width={300}
                       alt={album.albumName}
                     />
-                    <div className='flex flex-col justify-center'>
-                      <h3 className='text-xl font-semibold'>
-                        {album.albumName}
-                      </h3>
-                      <p className='text-sm font-light text-gray-300'>
-                        {album.tracks} Songs, 1hrs 23min
-                      </p>
+                    <div className='flex items-center gap-2'>
+                      <Button
+                        color='primary'
+                        isIconOnly
+                        size='sm'
+                        variant={'ghost'}
+                        radius='full'
+                      >
+                        <Play size={16} className='ms-0.5' />
+                      </Button>
+                      <div className='flex flex-col justify-center'>
+                        <h3 className='text-xl font-semibold'>
+                          {album.albumName}
+                        </h3>
+                        <p className='text-sm font-light text-gray-300'>
+                          {album.tracks} Songs, 1hrs 23min
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
