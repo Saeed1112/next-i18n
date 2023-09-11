@@ -3,9 +3,8 @@ import { albums } from '@/data/albums.json';
 import 'swiper/css';
 import Image from 'next/image';
 import { Button } from '@nextui-org/react';
-import { Heart, Play } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { Chip } from '@nextui-org/chip';
-import { FreeMode } from 'swiper/modules';
 import PlayButton from '@/components/playButton';
 
 export function MoreAlbums() {
@@ -13,12 +12,7 @@ export function MoreAlbums() {
     <div className='mt-16 flex flex-col'>
       <h2>Similar</h2>
       <div className='flex'>
-        <Swiper
-          slidesPerView={'auto'}
-          spaceBetween={30}
-          freeMode
-          modules={[FreeMode]}
-        >
+        <Swiper slidesPerView={'auto'} spaceBetween={30}>
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}

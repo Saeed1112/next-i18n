@@ -159,7 +159,7 @@ export default function Home() {
     <main className='relative max-h-screen overflow-x-hidden'>
       <LayoutBackground />
       <AppPlaylist />
-      <div className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-44'>
+      <div className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-16'>
         <div className='container flex flex-col justify-center gap-8 px-5 py-16'>
           <div className='flex flex-wrap gap-5 '>
             <RecordCover />
