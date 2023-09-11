@@ -47,16 +47,6 @@ function RecordCover() {
         src={
           'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
         }
-        className='pointer-events-none absolute h-full w-full scale-125 object-cover object-center opacity-80 blur-2xl'
-        alt={'Background'}
-        height={1028}
-        width={2080}
-      />
-      <Image
-        draggable={false}
-        src={
-          'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
-        }
         className='relative h-full w-full rounded-md object-cover object-center'
         alt={'Background'}
         height={1028}
