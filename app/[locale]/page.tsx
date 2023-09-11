@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { DownloadCloud, ListEnd, ListMusic, Play } from 'lucide-react';
+import { DownloadCloud, Heart, ListEnd, ListMusic, Play } from 'lucide-react';
 import {
   Button,
   Dropdown,
@@ -13,7 +13,6 @@ import {
 import { useState } from 'react';
 import { AppPlaylist } from '@/components/app-playlist';
 import { AppPlayer } from '@/components/app-player';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
 
 function LayoutBackground() {
@@ -44,7 +43,9 @@ function RecordCover() {
     <div className='relative aspect-square w-80 select-none'>
       <Image
         draggable={false}
-        src={'/images/the-weeknd.webp'}
+        src={
+          'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
+        }
         className='pointer-events-none absolute h-full w-full scale-125 object-cover object-center opacity-80 blur-2xl'
         alt={'Background'}
         height={1028}
@@ -52,7 +53,9 @@ function RecordCover() {
       />
       <Image
         draggable={false}
-        src={'/images/the-weeknd.webp'}
+        src={
+          'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
+        }
         className='relative h-full w-full rounded-md object-cover object-center'
         alt={'Background'}
         height={1028}
@@ -65,8 +68,8 @@ function RecordCover() {
 function TrackData() {
   return (
     <div className='flex flex-1 flex-col justify-center gap-3 selection:bg-black selection:text-gray-50'>
-      <h2 className='text-6xl font-bold'>Feels Like Summer</h2>
-      <h3 className='text-4xl font-semibold text-gray-200'>Childish Gambino</h3>
+      <h2 className='text-6xl font-bold'>Out of time</h2>
+      <h3 className='text-4xl font-semibold text-gray-200'>The Weeknd</h3>
       <p className='line-clamp-5 max-w-sm text-sm text-gray-300'>
         You can feel it in the streets On a day like this, the heat It feel like
         summer I feel like summer I feel like summer You can feel it in the
@@ -109,6 +112,55 @@ function AddToPlaylist() {
   );
 }
 
+function DownloadBox() {
+  return (
+    <Dropdown className='font-mona-sans-kalameh'>
+      <DropdownTrigger>
+        <Button
+          color='primary'
+          startContent={<DownloadCloud className=' stroke-gray-50' size={16} />}
+        >
+          Download
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu variant='light' aria-label='Static Actions'>
+        <DropdownItem key='new'>Mp3 320 - 9.8MB</DropdownItem>
+        <DropdownItem key='new'>Mp3 128 - 4.4MB</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
+
+function PlayButton() {
+  return (
+    <Button
+      className='bg-red-600'
+      startContent={<Play className='stroke-gray-50' size={16} />}
+    >
+      Play
+    </Button>
+  );
+}
+
+function LikeButton() {
+  return (
+    <Button color='danger' isIconOnly>
+      <Heart className='stroke-gray-50' size={16} />
+    </Button>
+  );
+}
+
+function TrackActions() {
+  return (
+    <div className='flex flex-wrap items-center gap-2'>
+      <PlayButton />
+      <DownloadBox />
+      <AddToPlaylist />
+      <LikeButton />
+    </div>
+  );
+}
+
 export default function Home() {
   const [playing, setPlaying] = useState(false);
   const { togglePlaylist } = useApp() as any;
@@ -116,50 +168,16 @@ export default function Home() {
     <main className='relative max-h-screen'>
       <LayoutBackground />
       <AppPlaylist />
-      <div className='relative flex min-h-screen w-full flex-col justify-center rounded-[inherit] pb-44'>
-        <div className='flex flex-col items-center px-5'>
-          <div className='container flex min-h-screen flex-col justify-center py-16 pb-44'>
-            <div className='flex flex-wrap gap-5'>
-              <RecordCover />
-              <div className='flex flex-col gap-5'>
-                <TrackData />
-                <div className='flex flex-wrap items-center gap-2'>
-                  <Button
-                    onClick={() => togglePlaylist()}
-                    color='danger'
-                    isLoading={playing}
-                    startContent={
-                      playing || <Play className='stroke-gray-50' size={16} />
-                    }
-                  >
-                    Play
-                  </Button>
-
-                  <Dropdown className='font-mona-sans-kalameh'>
-                    <DropdownTrigger>
-                      <Button
-                        color='primary'
-                        startContent={
-                          <DownloadCloud
-                            className=' stroke-gray-50'
-                            size={16}
-                          />
-                        }
-                      >
-                        Download
-                      </Button>
-                    </DropdownTrigger>
-                    <DropdownMenu variant='light' aria-label='Static Actions'>
-                      <DropdownItem key='new'>Mp3 320 - 9.8MB</DropdownItem>
-                      <DropdownItem key='new'>Mp3 128 - 4.4MB</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-
-                  <AddToPlaylist />
-                </div>
-              </div>
+      <div className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-44'>
+        <div className='container flex flex-col justify-center gap-8 px-5 py-16'>
+          <div className='flex flex-wrap gap-5 '>
+            <RecordCover />
+            <div className='flex flex-1 flex-col gap-5'>
+              <TrackData />
+              <TrackActions />
             </div>
           </div>
+          <div className='flex items-center'>Hello world</div>
         </div>
       </div>
       <AppPlayer />

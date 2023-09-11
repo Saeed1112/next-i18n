@@ -1,8 +1,27 @@
 'use client';
-import { Avatar, Button } from '@nextui-org/react';
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useApp } from '@/app/AppProvider';
-import { Heart, Play, SkipBack, SkipForward } from 'lucide-react';
+import {
+  DownloadCloud,
+  Heart,
+  Link2,
+  ListEnd,
+  MoreVertical,
+  Play,
+  Share,
+  Share2,
+  SkipBack,
+  SkipForward,
+} from 'lucide-react';
+import Link from 'next/link';
 
 const variants = {
   open: {
@@ -82,14 +101,27 @@ function PlayerTrack() {
 const TrackOptions = () => {
   return (
     <div className='flex items-center gap-5'>
-      <Button
-        variant={'light'}
-        isIconOnly
-        radius='full'
-        className='hidden sm:flex'
-      >
-        <Heart size={18} />
-      </Button>
+      <Dropdown className='font-mona-sans-kalameh' placement='top-end'>
+        <DropdownTrigger>
+          <Button isIconOnly radius='full' variant='light' color='default'>
+            <MoreVertical />
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu variant='light' aria-label='Static Actions'>
+          <DropdownItem key='new' startContent={<Heart size={16} />}>
+            Like
+          </DropdownItem>
+          <DropdownItem startContent={<ListEnd size={16} />} key='new'>
+            Add to playlist
+          </DropdownItem>
+          <DropdownItem startContent={<Share2 size={16} />} key='new'>
+            Share
+          </DropdownItem>
+          <DropdownItem startContent={<Link2 size={16} />} key='new'>
+            Open
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
     </div>
   );
 };
