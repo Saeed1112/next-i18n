@@ -6,15 +6,15 @@ import PlayButton from '@/components/playButton';
 
 function RecommendedPlaylistsSliderCard() {
   return (
-    <div className='relative flex h-32 w-[32rem] overflow-hidden rounded-md bg-neutral-900'>
-      <div className='relative h-32 w-56'>
+    <div className='relative flex h-32 w-[28rem] overflow-hidden rounded-md bg-neutral-900 sm:w-[32rem]'>
+      <div className='relative h-32 w-36 transition-all duration-200 sm:w-56'>
         <Image
           height={600}
           width={600}
           src={
             'https://audiok.ir/wp-content/uploads/2023/07/IMG_20230726_180446.jpg'
           }
-          className='absolute -start-0 z-30 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black'
+          className='absolute -start-16 z-30 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-0'
           alt={'Image'}
         />
         <Image
@@ -24,7 +24,7 @@ function RecommendedPlaylistsSliderCard() {
             'https://audiok.ir/wp-content/uploads/2023/09/IMG_20230911_231049.jpg'
           }
           alt={'Image'}
-          className='absolute start-12 z-20 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black'
+          className='absolute -start-6 z-20 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-12'
         />
         <Image
           height={600}
@@ -33,7 +33,7 @@ function RecommendedPlaylistsSliderCard() {
             'https://audiok.ir/wp-content/uploads/2022/10/IMG_20221018_024045.jpg'
           }
           alt={'Image'}
-          className='absolute start-24 z-10 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black'
+          className='absolute start-4 z-10 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-24'
         />
         <div className='absolute -end-4 bottom-0 top-0 z-40 flex w-8 items-center justify-center'>
           <PlayButton />
