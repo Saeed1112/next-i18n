@@ -34,7 +34,7 @@ function LayoutBackground() {
         height={1028}
         width={2080}
       />
-      <div className='absolute inset-0 bg-gradient-radial from-black/50 to-black backdrop-blur'></div>
+      <div className='absolute inset-0 bg-gradient-radial from-black/70 to-black'></div>
     </div>
   );
 }
