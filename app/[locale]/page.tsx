@@ -28,7 +28,7 @@ function LayoutBackground() {
     },
   };
   return (
-    <div className='fixed inset-0'>
+    <div className='absolute inset-0'>
       <Image
         src={'/images/the-weeknd.webp'}
         className='h-full w-full object-cover object-center'
@@ -37,6 +37,7 @@ function LayoutBackground() {
         width={2080}
       />
       <div className='absolute inset-0 bg-gradient-radial from-black/70 to-black lg:backdrop-blur'></div>
+      <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent lg:backdrop-blur'></div>
     </div>
   );
 }
