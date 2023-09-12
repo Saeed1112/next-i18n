@@ -171,15 +171,15 @@ function Categories() {
     'R&B',
   ];
   return (
-    <div className='mt-16 flex flex-col gap-3'>
+    <div className='mt-5 flex flex-col gap-3'>
       <h2 className='font-medium'>Genres & Moods</h2>
       <div className='flex'>
         <Swiper slidesPerView={'auto'} spaceBetween={30} className='rounded-md'>
           {genras.map((item) => (
             <SwiperSlide key={item} className='!w-auto py-2'>
-              <Button className='flex h-14 items-center justify-center rounded-md bg-default px-10 text-lg font-medium'>
+              <a className='flex h-14 items-center justify-center rounded-md bg-default px-10 text-lg font-medium'>
                 {item}
-              </Button>
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -209,8 +209,8 @@ export default function Home() {
           initial={'closed'}
           className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-16 transition-[padding] duration-300 xl:pe-[--padding-end] xl:transition-none'
         >
-          <div className='container flex flex-col justify-center gap-8 px-5 py-16'>
-            <div className='flex flex-wrap gap-5 '>
+          <div className='container flex flex-col justify-center gap-8 px-5 py-16 pt-32'>
+            <div className='flex flex-wrap gap-5'>
               <RecordCover />
               <div className='flex flex-1 flex-col gap-5'>
                 <TrackData />
