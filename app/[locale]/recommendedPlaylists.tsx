@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { Button } from '@nextui-org/react';
+import { Play } from 'lucide-react';
+import PlayButton from '@/components/playButton';
 
 function RecommendedPlaylistsSliderCard() {
   return (
-    <div className='flex h-32 w-[32rem] overflow-hidden rounded-md  bg-neutral-900'>
+    <div className='relative flex h-32 w-[32rem] overflow-hidden rounded-md bg-neutral-900'>
       <div className='relative h-32 w-56'>
         <Image
           height={600}
@@ -33,9 +35,14 @@ function RecommendedPlaylistsSliderCard() {
           alt={'Image'}
           className='absolute start-24 z-10 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black'
         />
+        <div className='absolute -end-4 bottom-0 top-0 z-40 flex w-8 items-center justify-center'>
+          <PlayButton />
+        </div>
       </div>
-      <div className='flex flex-1 flex-col justify-center gap-1 overflow-hidden px-5 py-3'>
-        <h4 className='text-lg font-bold'>Classic 80s</h4>
+      <div className='flex flex-1 flex-col justify-center gap-1 overflow-hidden px-5 py-3 ps-6'>
+        <h4 className='truncate text-lg font-bold'>
+          Classic 80s and a long text to show if get long title
+        </h4>
         <p className='line-clamp-3 text-sm'>
           You can feel it in the streets On a day like this, the heat It feel
           like summer I feel like summer I feel like summer You can feel it in

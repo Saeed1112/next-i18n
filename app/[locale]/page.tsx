@@ -28,7 +28,7 @@ function LayoutBackground() {
     },
   };
   return (
-    <div className='absolute inset-0'>
+    <div className='fixed inset-0 lg:absolute'>
       <Image
         src={'/images/the-weeknd.webp'}
         className='h-full w-full object-cover object-center'
@@ -213,7 +213,7 @@ export default function Home() {
           initial={'closed'}
           className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-16 transition-[padding] duration-300 xl:pe-[--padding-end] xl:transition-none'
         >
-          <div className='container flex flex-col justify-center gap-8 px-5 py-16 pt-32'>
+          <div className='container flex flex-col justify-center gap-8 px-5 py-16 pt-32 md:gap-16'>
             <div className='flex flex-wrap gap-5'>
               <RecordCover />
               <div className='flex flex-1 flex-col gap-5'>
