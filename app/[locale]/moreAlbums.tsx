@@ -6,6 +6,7 @@ import { Button } from '@nextui-org/react';
 import { Heart } from 'lucide-react';
 import { Chip } from '@nextui-org/chip';
 import PlayButton from '@/components/playButton';
+import { FreeMode } from 'swiper/modules';
 
 export function MoreAlbums() {
   return (
