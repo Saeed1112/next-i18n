@@ -18,6 +18,9 @@ module.exports = withNextIntl({
         hostname: 'maja-colman.be',
       },
       {
+        hostname: 'audiok.ir',
+      },
+      {
         hostname: 'thecentraltrend.com',
       },
       {

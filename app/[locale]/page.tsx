@@ -16,6 +16,7 @@ import { useApp } from '@/app/AppProvider';
 import { MoreAlbums } from '@/app/[locale]/moreAlbums';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { RecommendedPlaylists } from '@/app/[locale]/recommendedPlaylists';
 
 function LayoutBackground() {
   const variants = {
@@ -221,6 +222,7 @@ export default function Home() {
             </div>
             <MoreAlbums />
             <Categories />
+            <RecommendedPlaylists />
           </div>
         </motion.div>
       </AnimatePresence>
