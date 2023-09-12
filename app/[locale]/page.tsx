@@ -15,6 +15,7 @@ import { AppPlayer } from '@/components/app-player';
 import { useApp } from '@/app/AppProvider';
 import { MoreAlbums } from '@/app/[locale]/moreAlbums';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function LayoutBackground() {
   const variants = {
@@ -34,7 +35,7 @@ function LayoutBackground() {
         height={1028}
         width={2080}
       />
-      <div className='absolute inset-0 bg-gradient-radial from-black/70 to-black'></div>
+      <div className='absolute inset-0 bg-gradient-radial from-black/70 to-black lg:backdrop-blur'></div>
     </div>
   );
 }
@@ -154,6 +155,39 @@ function TrackActions() {
   );
 }
 
+function Categories() {
+  const genras = [
+    'Pop',
+    'Jazz',
+    'Sad',
+    'Dance',
+    'Country',
+    'Car',
+    'Long road',
+    'Hip hop',
+    'Classical',
+    'Metal',
+    'Party',
+    'R&B',
+  ];
+  return (
+    <div className='mt-16 flex flex-col gap-3'>
+      <h2 className='font-medium'>Genres & Moods</h2>
+      <div className='flex'>
+        <Swiper slidesPerView={'auto'} spaceBetween={30} className='rounded-md'>
+          {genras.map((item) => (
+            <SwiperSlide key={item} className='!w-auto py-2'>
+              <Button className='flex h-14 items-center justify-center rounded-md bg-default px-10 text-lg font-medium'>
+                {item}
+              </Button>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const { playlistState } = useApp() as any;
   const variant = {
@@ -165,7 +199,7 @@ export default function Home() {
     },
   } as any;
   return (
-    <main className='relative max-h-screen overflow-x-hidden'>
+    <main className='relative max-h-screen'>
       <LayoutBackground />
       <AppPlaylist />
       <AnimatePresence>
@@ -184,6 +218,7 @@ export default function Home() {
               </div>
             </div>
             <MoreAlbums />
+            <Categories />
           </div>
         </motion.div>
       </AnimatePresence>
