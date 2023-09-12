@@ -173,13 +173,13 @@ function Categories() {
     'R&B',
   ];
   return (
-    <div className='mt-5 flex flex-col gap-3'>
+    <div className='mt-5 flex select-none flex-col gap-3'>
       <h2 className='font-medium'>Genres & Moods</h2>
       <div className='flex'>
         <Swiper slidesPerView={'auto'} spaceBetween={30} className='rounded-md'>
           {genras.map((item) => (
-            <SwiperSlide key={item} className='!w-auto py-2'>
-              <a className='flex h-14 items-center justify-center rounded-md bg-default px-10 text-lg font-medium'>
+            <SwiperSlide key={item} className='!w-auto'>
+              <a className='flex h-10 items-center justify-center rounded-md bg-neutral-900 px-8 text-base md:h-14 md:px-10 md:text-lg'>
                 {item}
               </a>
             </SwiperSlide>
