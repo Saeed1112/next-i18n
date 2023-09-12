@@ -41,17 +41,19 @@ function LayoutBackground() {
 
 function RecordCover() {
   return (
-    <div className='relative aspect-square w-80 select-none'>
-      <Image
-        draggable={false}
-        src={
-          'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
-        }
-        className='relative h-full w-full rounded-md object-cover object-center'
-        alt={'Background'}
-        height={1028}
-        width={2080}
-      />
+    <div>
+      <div className='relative aspect-square w-80 flex-shrink-0 select-none'>
+        <Image
+          draggable={false}
+          src={
+            'https://yt3.googleusercontent.com/QiI-c4cFyRPD0qVwTQooC3dlgJqHA_t6CpEAv818om-mqL9bqNDL4L_qXQVXx_eY76D_7cLD=s900-c-k-c0x00ffffff-no-rj'
+          }
+          className='relative h-full w-full rounded-md object-cover object-center'
+          alt={'Background'}
+          height={1028}
+          width={2080}
+        />
+      </div>
     </div>
   );
 }
