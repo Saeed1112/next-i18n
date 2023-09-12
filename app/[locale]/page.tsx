@@ -62,9 +62,11 @@ function RecordCover() {
 function TrackData() {
   return (
     <div className='flex flex-1 flex-col justify-center gap-3 selection:bg-black selection:text-gray-50'>
-      <h2 className='text-6xl font-bold'>Out of time</h2>
-      <h3 className='text-4xl font-semibold text-gray-200'>The Weeknd</h3>
-      <p className='line-clamp-5 max-w-sm text-sm text-gray-300'>
+      <h2 className='text-3xl font-bold md:text-6xl'>Out of time</h2>
+      <h3 className='text-xl font-semibold text-gray-200 md:text-4xl'>
+        The Weeknd
+      </h3>
+      <p className='line-clamp-5 max-w-sm text-sm text-gray-400'>
         You can feel it in the streets On a day like this, the heat It feel like
         summer I feel like summer I feel like summer You can feel it in the
         streets On a day like this, the heat I feel like summer She feel like
