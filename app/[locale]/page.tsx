@@ -10,11 +10,11 @@ import {
   Select,
   SelectItem,
 } from '@nextui-org/react';
-import { useState } from 'react';
 import { AppPlaylist } from '@/components/app-playlist';
 import { AppPlayer } from '@/components/app-player';
 import { useApp } from '@/app/AppProvider';
 import { MoreAlbums } from '@/app/[locale]/moreAlbums';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function LayoutBackground() {
   const variants = {
@@ -155,24 +155,38 @@ function TrackActions() {
 }
 
 export default function Home() {
-  const [playing, setPlaying] = useState(false);
-  const { togglePlaylist } = useApp() as any;
+  const { playlistState } = useApp() as any;
+  const variant = {
+    open: {
+      '--padding-end': '22.8rem',
+    },
+    closed: {
+      '--padding-end': 0,
+    },
+  } as any;
   return (
     <main className='relative max-h-screen overflow-x-hidden'>
       <LayoutBackground />
       <AppPlaylist />
-      <div className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-16'>
-        <div className='container flex flex-col justify-center gap-8 px-5 py-16'>
-          <div className='flex flex-wrap gap-5 '>
-            <RecordCover />
-            <div className='flex flex-1 flex-col gap-5'>
-              <TrackData />
-              <TrackActions />
+      <AnimatePresence>
+        <motion.div
+          variants={variant}
+          animate={playlistState ? 'open' : 'closed'}
+          initial={'closed'}
+          className='relative flex min-h-screen w-full flex-col items-center justify-center rounded-[inherit] pb-16 transition-[padding] duration-300 xl:pe-[--padding-end] xl:transition-none'
+        >
+          <div className='container flex flex-col justify-center gap-8 px-5 py-16'>
+            <div className='flex flex-wrap gap-5 '>
+              <RecordCover />
+              <div className='flex flex-1 flex-col gap-5'>
+                <TrackData />
+                <TrackActions />
+              </div>
             </div>
+            <MoreAlbums />
           </div>
-          <MoreAlbums />
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
       <AppPlayer />
     </main>
   );

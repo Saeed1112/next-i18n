@@ -12,7 +12,7 @@ export function MoreAlbums() {
     <div className='mt-16 flex flex-col gap-3'>
       <h2 className='font-medium'>Related Albums</h2>
       <div className='flex'>
-        <Swiper slidesPerView={'auto'} spaceBetween={30}>
+        <Swiper slidesPerView={'auto'} spaceBetween={30} className='rounded-md'>
           {albums.map((album: any) => (
             <SwiperSlide
               key={album.albumName}
