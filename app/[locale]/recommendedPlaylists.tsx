@@ -1,12 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import { Button } from '@nextui-org/react';
-import { Play } from 'lucide-react';
 import PlayButton from '@/components/playButton';
 
 function RecommendedPlaylistsSliderCard() {
   return (
-    <div className='relative flex h-32 w-[28rem] overflow-hidden rounded-md bg-neutral-900 sm:w-[32rem]'>
+    <div className='relative flex h-32 w-96 overflow-hidden rounded-md bg-neutral-900 sm:w-[32rem]'>
       <div className='relative h-32 w-36 transition-all duration-200 sm:w-56'>
         <Image
           height={600}
@@ -14,7 +12,7 @@ function RecommendedPlaylistsSliderCard() {
           src={
             'https://audiok.ir/wp-content/uploads/2023/07/IMG_20230726_180446.jpg'
           }
-          className='absolute -start-16 z-30 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-0'
+          className='absolute -start-1/2 z-30 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-0'
           alt={'Image'}
         />
         <Image
@@ -24,7 +22,7 @@ function RecommendedPlaylistsSliderCard() {
             'https://audiok.ir/wp-content/uploads/2023/09/IMG_20230911_231049.jpg'
           }
           alt={'Image'}
-          className='absolute -start-6 z-20 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-12'
+          className='absolute -start-[20%] z-20 h-32 w-32 object-cover object-center shadow-[0_0_50px_12px] shadow-black transition-all duration-200 sm:start-12'
         />
         <Image
           height={600}

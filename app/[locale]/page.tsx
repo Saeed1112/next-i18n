@@ -15,8 +15,8 @@ import { AppPlayer } from '@/components/app-player';
 import { useApp } from '@/app/AppProvider';
 import { MoreAlbums } from '@/app/[locale]/moreAlbums';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { RecommendedPlaylists } from '@/app/[locale]/recommendedPlaylists';
+import { GenresSlider } from '@/app/[locale]/genresSlider';
 
 function LayoutBackground() {
   const variants = {
@@ -159,39 +159,6 @@ function TrackActions() {
   );
 }
 
-function Categories() {
-  const genras = [
-    'Pop',
-    'Jazz',
-    'Sad',
-    'Dance',
-    'Country',
-    'Car',
-    'Long road',
-    'Hip hop',
-    'Classical',
-    'Metal',
-    'Party',
-    'R&B',
-  ];
-  return (
-    <div className='mt-5 flex select-none flex-col gap-3'>
-      <h2 className='font-medium'>Genres & Moods</h2>
-      <div className='flex'>
-        <Swiper slidesPerView={'auto'} spaceBetween={30} className='rounded-md'>
-          {genras.map((item) => (
-            <SwiperSlide key={item} className='!w-auto'>
-              <a className='flex h-10 items-center justify-center rounded-md bg-neutral-900 px-8 text-base md:h-14 md:px-10 md:text-lg'>
-                {item}
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const { playlistState } = useApp() as any;
   const variant = {
@@ -222,7 +189,7 @@ export default function Home() {
               </div>
             </div>
             <MoreAlbums />
-            <Categories />
+            <GenresSlider />
             <RecommendedPlaylists />
           </div>
         </motion.div>
