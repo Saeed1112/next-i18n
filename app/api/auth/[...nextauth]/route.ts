@@ -93,6 +93,7 @@ export const authOptions: AuthOptions = {
         createdAt: token.createdAt,
         updatedAt: token.updatedAt,
         emailVerified: token.emailVerified,
+        email: token.email,
       };
       return { expires: session.expires, user };
     },
