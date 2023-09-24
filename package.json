@@ -11,7 +11,7 @@
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.0",
     "@nextui-org/react": "^2.1.10",
-    "@prisma/client": "^5.2.0",
+    "@prisma/client": "^5.3.1",
     "@radix-ui/react-scroll-area": "^1.0.4",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
@@ -43,6 +43,6 @@
     "@types/negotiator": "^0.6.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
-    "prisma": "^5.2.0"
+    "prisma": "^5.3.1"
   }
 }
